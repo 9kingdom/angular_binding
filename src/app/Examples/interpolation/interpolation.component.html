@@ -1,32 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { HighlightResult } from 'ngx-highlightjs';
-import { CommonService } from 'src/app/common.service';
-import { ModalData } from 'src/app/modal-data';
-
-@Component({
-  selector: 'app-interpolation',
-  templateUrl: './interpolation.component.html',
-  styleUrls: []
-})
-export class InterpolationComponent implements OnInit {
-  codeData: ModalData = new ModalData();
-  code = `
-  export class InterpolationComponent {
-    bindingType = 'String interpolation';
-    name = 'Robert';
-    flag = true;
-    siteURL = window.location.href;
-    hideClass = false;
-
-    constructor(private commonService: CommonService) {}
-
-    displayMsg() {
-      this.flag = !this.flag;
-    }
-  }
-`;
-
-  html = `<table class="table table-striped">
+<div class="container-fluid" style="text-align:left">
+  <div class="row">
+    <div class="col">
+      <h1>
+        <font color="red">{{ bindingType }}</font>
+      </h1>
+    </div>
+    <div class="col">
+      <button
+        class="btn btn-info"
+        (click)="showHtml()"
+        style="float: right; margin-left: 2px;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show HTML
+      </button>
+      <button
+        class="btn btn-info"
+        (click)="showClass()"
+        style="float: right;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show class
+      </button>
+    </div>
+  </div>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">
@@ -102,31 +102,16 @@ export class InterpolationComponent implements OnInit {
         </td>
       </tr>
     </tbody>
-  </table>`;
-
-  bindingType = 'String Interpolation';
-  name = 'Robert';
-  flag = true;
-  siteURL = window.location.href;
-  hideClass = false;
-
-  constructor(private commonService: CommonService) {}
-
-  ngOnInit(): void {
-    this.codeData.setClassTitle(this.bindingType);
-  }
-
-  displayMsg() {
-    this.flag = !this.flag;
-  }
-
-  showClass() {
-    this.codeData.setCode(this.code);
-    this.commonService.code.next(this.codeData);
-  }
-
-  showHtml() {
-    this.codeData.setCode(this.html);
-    this.commonService.code.next(this.codeData);
-  }
-}
+  </table>
+</div>
+<br />
+<div
+  class="modal fade"
+  id="classModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+  <app-modal></app-modal>
+</div>

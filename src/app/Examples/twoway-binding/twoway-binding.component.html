@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <h1 [style.color]="'red'"><strong>This is {{ bindingType }}</strong></h1>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <input [(ngModel)]="name" type="text" class="form-control" data-toggle="tooltip" data-placement="top"
+        title="[(ngModel)] = &quot;name&quot;">
+      <p>Start typing => Value from input field will be copied to variable &quot;name&quot; and
+        another DOM element will be automatically updated with that value</p>
+    </div>
+    <div class="col">
+      {{ name }}
+    </div>
+  </div>
+  <br>
+</div>

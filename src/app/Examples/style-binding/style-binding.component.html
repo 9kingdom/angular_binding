@@ -1,0 +1,96 @@
+<div class="container" style="text-align:left">
+  <div class="row">
+    <div class="col">
+      <h1 [style.color]="'red'">
+        <strong>{{ bindingType }}</strong>
+      </h1>
+    </div>
+    <div class="col">
+      <button
+        class="btn btn-info"
+        (click)="showHtml()"
+        style="float: right; margin-left: 2px;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show HTML
+      </button>
+      <button
+        class="btn btn-info"
+        (click)="showClass()"
+        style="float: right;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show class
+      </button>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">
+          <h3><strong>Example</strong></h3>
+        </th>
+        <th scope="col">
+          <h3><strong>Syntax</strong></h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">
+          <h4 [style.color]="'blue'">Example of css 'color' style binding.</h4>
+        </td>
+        <td>
+          <h5>[style.color]=" 'blue' "</h5>
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">
+          <h4 [style.color]="isSpecial ? 'green' : 'orange'">
+            Example of conditional css 'color' style binding.
+          </h4>
+        </td>
+        <td>
+          <h5>[style.color]="isSpecial ? 'green' : 'orange'"</h5>
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">
+          <h4 [style.color]="highlightColor">
+            Example of css 'color' style binding by variable.
+          </h4>
+        </td>
+        <td>
+          <h5>[style.color]="highlightColor"</h5>
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">
+          <h4 [ngStyle]="titleStyles">Example of css multi style binding by variable.</h4>
+        </td>
+        <td>
+          <h5>
+            <strong>[ngStyle]="titleStyles"</strong>
+            <p style="margin-top:4px;">
+              *ngStyle - use of more than one style at a time (see: 'titleStyles' declaration)
+            </p>
+          </h5>
+        </td>
+      </tr>
+      <tr></tr>
+    </tbody>
+  </table>
+</div>
+<br />
+<div
+  class="modal fade"
+  id="classModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+  <app-modal></app-modal>
+</div>

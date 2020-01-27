@@ -1,0 +1,106 @@
+<div class="container" style="text-align:left">
+  <div class="row">
+    <div class="col">
+      <h1 [style.color]="'red'">
+        <strong>{{ bindingType }}</strong>
+      </h1>
+    </div>
+    <div class="col">
+      <button
+        class="btn btn-info"
+        (click)="showHtml()"
+        style="float: right; margin-left: 2px;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show HTML
+      </button>
+      <button
+        class="btn btn-info"
+        (click)="showClass()"
+        style="float: right;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show class
+      </button>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">
+          <h3><strong>Example</strong></h3>
+        </th>
+        <th scope="col">
+          <h3><strong>Syntax</strong></h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">
+          <h4 class="text-success">This is sample text - no databinding</h4>
+        </td>
+        <td>
+          <h5>class="text-success"</h5>
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">
+          <h4 [class]="successClass">This is class binding</h4>
+        </td>
+        <td>
+          <h5>
+            [class]="successClass" : wartość zmiennej 'successClass' zostanie przypisana do 'class'
+            => class="text-success"
+          </h5>
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">
+          <h4 class="text-special" [class]="successClass">
+            class="text-special" zostanie nadpisane przez 'class binding'
+          </h4>
+        </td>
+        <td>
+          <h5>class="text-special" <strong>[class]="successClass"</strong></h5>
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">
+          <h4 [class.text-danger]="hasError">Przypisanie klasy po spełnieniu warunku.</h4>
+        </td>
+        <td>
+          <h5>[class.text-danger]="hasError"</h5>
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">
+          <h4 [ngClass]="messageClass">Użycie ngClass.</h4>
+        </td>
+        <td>
+          <h5>
+            [ngClass]="messageClass"
+            <strong>Uwaga: to nie jest to samo co [class]="messageClass"</strong><br />
+            <span
+              >Dzięki 'ngClass' możemy zastosowac kilka klas jednocześnie (zobacz deklaracje
+              'messageClass')</span
+            >
+          </h5>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
+<div
+  class="modal fade"
+  id="classModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+  <app-modal></app-modal>
+</div>

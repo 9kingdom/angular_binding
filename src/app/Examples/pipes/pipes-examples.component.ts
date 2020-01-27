@@ -48,7 +48,7 @@ import { Component, OnInit } from '@angular/core';
 	`,
   styles: []
 })
-export class PipesComponent implements OnInit {
+export class PipesExampleComponent implements OnInit {
 
   bindingType = '<Pipes>';
 

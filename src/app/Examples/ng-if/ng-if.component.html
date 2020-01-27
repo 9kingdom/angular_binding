@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <h1 [style.color]="'red'">
+      <strong>This is {{ bindingType }}</strong>
+    </h1>
+  </div>
+  <div class="row" style="margin-bottom:10px;">
+    <div class="col-7">
+      <div>
+        <h5 *ngIf="true">Przykład ngIf</h5>
+        <h5 *ngIf="displayName">
+          Kolejny przykład ngIf tym razem ze zmienną typu 'boolean'
+        </h5>
+      </div>
+    </div>
+    <div class="col">
+      <h5>=> *ngIf=&quot;true&quot;</h5>
+      <h5>=> *ngIf=&quot;displayName&quot;</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      <button class="btn btn-outline-secondary" type="button" (click)="changeValue()" data-toggle="tooltip"
+        data-placement="top" title="...">
+        Toggle displayName2
+      </button>
+      <p>displayName2={{ displayName2 }}</p>
+    </div>
+    <div class="col">
+      <div *ngIf="displayName2; then thenBlock; else elseBlock"></div>
+      <ng-template #thenBlock>
+        <h5>
+          <font color="green">thenBlock => visible only when displayName2=true</font>
+        </h5>
+      </ng-template>
+      <ng-template #elseBlock>
+        <h5>
+          <font color="red">elseBlock => visible only when displayName2=false</font>
+        </h5>
+      </ng-template>
+    </div>
+  </div>
+  <br />
+</div>

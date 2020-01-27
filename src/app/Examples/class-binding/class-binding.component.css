@@ -1,0 +1,15 @@
+.text-success {
+      color: green;
+    }
+    .text-danger {
+      color: red;
+    }
+    .text-special {
+      font-style: italic;
+    }
+    .tab {
+      margin-left: 15px;
+    }
+    .tab2 {
+      margin-left: 30px
+    }

@@ -1,27 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalData } from 'src/app/modal-data';
-import { CommonService } from 'src/app/common.service';
-
-@Component({
-  selector: 'app-property-binding',
-  templateUrl: './property-binding.component.html',
-  styleUrls: []
-})
-export class PropertyBindingComponent implements OnInit {
-  codeData: ModalData = new ModalData();
-  code = `
-  export class PropertyBindingComponent implements OnInit {
-    bindingType = 'Property binding';
-    myId = 'testId';
-    flag = true;
-
-    constructor() {}
-
-    ngOnInit() {}
-  }
-`;
-
-  html = `
+<div class="container-fluid" style="text-align:left">
+  <div class="row">
+    <div class="col">
+      <h1>
+        <font color="red">{{ bindingType }}</font>
+      </h1>
+    </div>
+    <div class="col">
+      <button
+        class="btn btn-info"
+        (click)="showHtml()"
+        style="float: right; margin-left: 2px;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show HTML
+      </button>
+      <button
+        class="btn btn-info"
+        (click)="showClass()"
+        style="float: right;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show class
+      </button>
+    </div>
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -84,25 +88,16 @@ export class PropertyBindingComponent implements OnInit {
         </td>
       </tr>
     </tbody>
-  </table>`;
-
-  bindingType = 'Property binding';
-  myId = 'testId';
-  flag = true;
-
-  constructor(private commonService: CommonService) {}
-
-  ngOnInit() {
-    this.codeData.setClassTitle(this.bindingType);
-  }
-
-  showClass() {
-    this.codeData.setCode(this.code);
-    this.commonService.code.next(this.codeData);
-  }
-
-  showHtml() {
-    this.codeData.setCode(this.html);
-    this.commonService.code.next(this.codeData);
-  }
-}
+  </table>
+</div>
+<br />
+<div
+  class="modal fade"
+  id="classModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+  <app-modal></app-modal>
+</div>

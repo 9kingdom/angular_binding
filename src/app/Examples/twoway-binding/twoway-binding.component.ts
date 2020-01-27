@@ -2,18 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-twoway-binding',
-  template: `
-    <h1>
-        <font color="red">This is {{ bindingType }}</font>
-    </h1>
-
-    <div style="text-align:center">
-    <input [(ngModel)] = "name" type="text"> {{ name }}
-
-    </div>
-
-  `,
-  styles: [``]
+  templateUrl: './twoway-binding.component.html',
+  styleUrls: []
 })
 export class TwowayBindingComponent implements OnInit {
 
