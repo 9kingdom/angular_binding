@@ -11,7 +11,7 @@ export class ClassBindingComponent implements OnInit {
   codeData: ModalData = new ModalData();
   code = `
   export class ClassBindingComponent implements OnInit {
-    bindingType = 'class binding';
+    bindingType = 'Class binding';
 
     public successClass = 'text-success';
     public textSpecial = 'text-special';
@@ -110,7 +110,7 @@ export class ClassBindingComponent implements OnInit {
     </tbody>
   </table>`;
 
-  bindingType = 'class binding';
+  bindingType = 'Class binding';
 
   public successClass = 'text-success';
   public textSpecial = 'text-special';

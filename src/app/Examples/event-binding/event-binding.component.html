@@ -1,53 +1,127 @@
-<div class="container">
+<div class="container-fluid" style="text-align:left">
   <div class="row">
-    <h1 [style.color]="'red'">
-      <strong>This is {{ bindingType }}</strong>
-    </h1>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <button type="button" class="btn btn-outline-secondary" (click)="runMethod()">
-        Click me
+    <div class="col">
+      <h1 [style.color]="'red'">
+        <strong>{{ bindingType }}</strong>
+      </h1>
+    </div>
+    <div class="col">
+      <button
+        class="btn btn-info"
+        (click)="showHtml()"
+        style="float: right; margin-left: 2px;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show HTML
       </button>
-      <p>
-        (click) = "runMethod( this.dispMessage = !this.dispMessage; )"<br />
-        [hidden] = "dispMessage"
-      </p>
-    </div>
-    <div class="col" [hidden]="dispMessage" style="text-align:left">
-      <h4><strong>Pojawiam się i znikam</strong></h4>
+      <button
+        class="btn btn-info"
+        (click)="showClass()"
+        style="float: right;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show class
+      </button>
     </div>
   </div>
-  <div class="row">
-    <div class="col-6" style="margin:auto">
-      <div class="input-group">
-        <input #inputField value="tratata" type="text" class="form-control" data-toggle="tooltip" data-placement="top"
-          title="#inputField value='tratata'" />
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" data-toggle="tooltip" data-placement="top"
-            title="Show 'event type' & input filed value => (click) = passValue($event, inputField)"
-            (click)="passValue($event, inputField)">
+  <table class="table table-striped container-fluid">
+    <thead>
+      <tr class="row">
+        <th class="col" scope="row">
+          <h3><strong>Example</strong></h3>
+        </th>
+        <th class="col" scope="row">
+          <h3><strong>Message</strong></h3>
+        </th>
+        <th class="col" scope="row">
+          <h3><strong>Syntax</strong></h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row">
+        <td class="col" scope="row">
+          <button type="button" class="btn btn-outline-secondary" (click)="runMethod()">
             Click me
           </button>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <h5>wartość pola input => {{ inputValue }}</h5>
-      <h5>event type => {{ eventType }}</h5>
-    </div>
-  </div>
-  <div class="row" style="margin-top:15px;">
-    <div class="col-6" style="margin:auto;">
-      <button class="btn btn-outline-secondary" type="button" data-toggle="tooltip" data-placement="top"
-        title="Przykład 'template statement' => (click) = &quot;templateStatement='Halo Halo'&quot; "
-        (click)="templateStatement = 'Halo Halo'">
-        Click me
-      </button>
-    </div>
-    <div class="col">
-      <h5>template statement => {{ templateStatement }}</h5>
-    </div>
-  </div>
-  <br />
+        </td>
+        <td class="col" scope="row">
+          <div [hidden]="dispMessage" style="text-align:left">
+            <h5><strong>Show me with a click</strong></h5>
+          </div>
+        </td>
+        <td class="col" scope="row">
+          <h5>(click) = "runMethod()" => <br />[hidden] = "dispMessage"</h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col align-middle" scope="row">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Show 'event type' & input filed value => (click) = passValue($event, inputField)"
+                (click)="passValue($event, inputField)"
+              >
+                Click me
+              </button>
+            </div>
+            <input
+              #inputField
+              value="tratata"
+              type="text"
+              class="form-control"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="#inputField value='tratata'"
+            />
+          </div>
+        </td>
+        <td class="col" scope="row">
+          <h5>Input field value => {{ inputValue }}</h5>
+          <h5>event type => {{ eventType }}</h5>
+        </td>
+        <td class="col" scope="row">
+          <h5>
+            (click)="passValue($event, inputField)"
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col" scope="row">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Example of 'templateStatement' => (click) = &quot;templateStatement='Halo Halo'&quot; "
+            (click)="templateStatement = 'Halo Halo'"
+          >
+            Click me
+          </button>
+        </td>
+        <td class="col" scope="row">
+          <h5>templateStatement => {{ templateStatement }}</h5>
+        </td>
+        <td class="col" scope="row">
+          <h5>(click) = &quot;templateStatement='Halo Halo'&quot;</h5>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div
+  class="modal fade"
+  id="classModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+  <app-modal></app-modal>
 </div>

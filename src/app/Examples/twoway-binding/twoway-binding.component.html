@@ -1,17 +1,79 @@
-<div class="container">
+<div class="container-fluid" style="text-align:left">
   <div class="row">
-    <h1 [style.color]="'red'"><strong>This is {{ bindingType }}</strong></h1>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <input [(ngModel)]="name" type="text" class="form-control" data-toggle="tooltip" data-placement="top"
-        title="[(ngModel)] = &quot;name&quot;">
-      <p>Start typing => Value from input field will be copied to variable &quot;name&quot; and
-        another DOM element will be automatically updated with that value</p>
+    <div class="col">
+      <h1 [style.color]="'red'">
+        <strong>{{ bindingType }}</strong>
+      </h1>
     </div>
     <div class="col">
-      {{ name }}
+      <button
+        class="btn btn-info"
+        (click)="showHtml()"
+        style="float: right; margin-left: 2px;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show HTML
+      </button>
+      <button
+        class="btn btn-info"
+        (click)="showClass()"
+        style="float: right;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show class
+      </button>
     </div>
   </div>
-  <br>
+  <table class="table table-striped container-fluid">
+    <thead>
+      <tr class="row">
+        <th class="col" scope="row">
+          <h3><strong>Example</strong></h3>
+        </th>
+        <th class="col" scope="row">
+          <h3><strong>Variable 'name'</strong></h3>
+        </th>
+        <th class="col" scope="row">
+          <h3><strong>Syntax</strong></h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row">
+        <td class="col" scope="row">
+          <input
+            [(ngModel)]="name"
+            type="text"
+            class="form-control"
+            data-toggle="tooltip"
+            data-placement="top"
+            title='[(ngModel)] = "name"'
+          />
+          <p>
+            Start typing => Value from input field will be copied to variable &quot;name&quot; and
+            another DOM element will be automatically updated with that value
+          </p>
+        </td>
+        <td class="col" scope="row">
+          <h5>{{ '{{' }} name {{ '}' }}{{ '}' }}</h5>
+          <h5>{{ name }}</h5>
+        </td>
+        <td class="col" scope="row">
+          <h5>[(ngModel)] = "name"</h5>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div
+  class="modal fade"
+  id="classModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+  <app-modal></app-modal>
 </div>

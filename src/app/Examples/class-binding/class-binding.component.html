@@ -1,4 +1,4 @@
-<div class="container" style="text-align:left">
+<div class="container-fluid" style="text-align:left">
   <div class="row">
     <div class="col">
       <h1 [style.color]="'red'">
@@ -52,7 +52,7 @@
         </td>
         <td>
           <h5>
-            [class]="successClass" : wartość zmiennej 'successClass' zostanie przypisana do 'class'
+            [class]="successClass" : 'successClass' value willbe passed to 'class'
             => class="text-success"
           </h5>
         </td>
@@ -60,7 +60,7 @@
       <tr>
         <td scope="row">
           <h4 class="text-special" [class]="successClass">
-            class="text-special" zostanie nadpisane przez 'class binding'
+             'class binding' overwites class="text-special"
           </h4>
         </td>
         <td>
@@ -69,7 +69,7 @@
       </tr>
       <tr>
         <td scope="row">
-          <h4 [class.text-danger]="hasError">Przypisanie klasy po spełnieniu warunku.</h4>
+          <h4 [class.text-danger]="hasError">'class binding' dependent on condition</h4>
         </td>
         <td>
           <h5>[class.text-danger]="hasError"</h5>
@@ -77,15 +77,14 @@
       </tr>
       <tr>
         <td scope="row">
-          <h4 [ngClass]="messageClass">Użycie ngClass.</h4>
+          <h4 [ngClass]="messageClass">Example of 'ngClass' directive</h4>
         </td>
         <td>
           <h5>
             [ngClass]="messageClass"
-            <strong>Uwaga: to nie jest to samo co [class]="messageClass"</strong><br />
+            <strong>Note: [class]="messageClass" will not work!</strong><br />
             <span
-              >Dzięki 'ngClass' możemy zastosowac kilka klas jednocześnie (zobacz deklaracje
-              'messageClass')</span
+              >Thanks to 'ngClass' multiple classes can be assigned via variable (e.g. 'messageClass')</span
             >
           </h5>
         </td>
