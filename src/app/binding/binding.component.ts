@@ -8,7 +8,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class BindingComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {}
+  constructor( private route: ActivatedRoute ) { }
 
   ngOnInit() {
   }

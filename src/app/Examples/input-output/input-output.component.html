@@ -1,0 +1,139 @@
+<div class="container-fluid" style="text-align:left">
+  <div class="row">
+    <div class="col-4">
+      <h2 [style.color]="'red'">
+        <strong>{{ bindingType }}</strong>
+      </h2>
+    </div>
+    <div class="col-8">
+      <button
+        class="btn btn-info"
+        (click)="showHtml()"
+        style="float: right; margin-left: 2px;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show HTML (child)
+      </button>
+      <button
+        class="btn btn-info"
+        (click)="showClass()"
+        style="float: right; margin-left: 2px;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show class (child)
+      </button>
+      <button
+        class="btn btn-info"
+        (click)="showHtmlParent()"
+        style="float: right; margin-left: 2px;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show HTML (parent)
+      </button>
+      <button
+        class="btn btn-info"
+        (click)="showClassParent()"
+        style="float: right;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show class (parent)
+      </button>
+    </div>
+  </div>
+  <br />
+  <div class="alert alert-secondary" role="alert">
+    <p><strong>@Input</strong> - value flows from parent to child component.</p>
+    <p><strong>@Output</strong> - value flows from child to parent component (via EventEmitter).</p>
+    <pre><code [highlight]="syntax"></code></pre>
+    <p>
+      *To watch for changes on an @Input() property (@Output will not work), use OnChanges, one of
+      Angular's lifecycle hooks.
+    </p>
+  </div>
+  <br />
+  <table class="table table-striped container-fluid">
+    <thead>
+      <tr class="row">
+        <th class="col-2" scope="row">
+          <h3><strong>Example</strong></h3>
+        </th>
+        <th class="col-4" scope="row">
+          <h3><strong>Message</strong></h3>
+        </th>
+        <th class="col-6" scope="row">
+          <h3><strong>Syntax</strong></h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row">
+        <td class="col-2" scope="row">
+          <h5><strong>@Input</strong></h5>
+          <button type="button" class="btn btn-outline-secondary" (click)="input()">
+            Click me
+          </button>
+        </td>
+        <td class="col-4" scope="row">
+          <h5 [hidden]="inputSwitch">
+            <strong>@Input: {{ childReciver }}</strong>
+          </h5>
+        </td>
+        <td class="col-6" scope="row">
+          <h5>Parent component:</h5>
+          <h6>
+            .ts:
+            <pre><code [highlight]="parentTsCode"></code></pre>
+            .html:
+            <pre><code [highlight]="parentHtmlCode"></code></pre>
+          </h6>
+          <h5>Child component:</h5>
+          <h6>
+            .ts:
+            <pre><code [highlight]="childTsCode"></code></pre>
+            .html:
+            <pre><code [highlight]="childHtmlCode"></code></pre>
+          </h6>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-2" scope="row">
+          <h5><strong>@Output</strong></h5>
+          <button
+            class="btn btn-outline-secondary"
+            (click)="output(inputField.value)"
+            style="margin-bottom: 2px;"
+          >
+            Click me
+          </button>
+          <input #inputField value="tratata" type="text" class="form-control" />
+        </td>
+        <td class="col-4" scope="row">
+          <h5 [hidden]="outputSwitch">
+            <strong>@Output: {{ childReciver2 }}</strong>
+          </h5>
+        </td>
+        <td class="col-6" scope="row">
+          <h5>Child component:</h5>
+          <h6>
+            .html:
+            <pre><code [highlight]="childOutputHtmlCode"></code></pre>
+            .ts:
+            <pre><code [highlight]="childOutputTsCode"></code></pre>
+          </h6>
+          <h5>Parent component:</h5>
+          <h6>
+            .html:
+            <pre><code [highlight]="parentOutputHtmlCode"></code></pre>
+            .ts:
+            <pre><code [highlight]="parentOutputTsCode"></code></pre>
+          </h6>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-modal></app-modal>
+</div>

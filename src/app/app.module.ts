@@ -24,12 +24,17 @@ import { FooterComponent } from './page-headders/footer/footer.component';
 import { BindingComponent } from './binding/binding.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import { DirectivesComponent } from './directives/directives.component';
+import { DirectivesComponent } from './Directives/directive_home/directives.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { ObservablesComponent } from './observables/observables.component';
 import { RoutingComponent } from './routing/routing.component';
 import { CustomDirectiveComponent } from './Examples/custom-directive/custom-directive.component';
 import { ModalComponent } from './page-headders/modal/modal.component';
+import { ParentComponent } from './Examples/parent-component/parent-component.component';
+import { AtributeDirectivesComponent } from './Directives/atribute-directives/atribute-directives.component';
+import { StructuralDirectivesComponent } from './Directives/structural-directives/structural-directives.component';
+import { CustomDirectivesComponent } from './Directives/custom-directives/custom-directives.component';
+import { FormsHomeComponent } from './Forms/forms-home/forms-home.component';
 
 export function getHighlightLanguages() {
   return {
@@ -65,7 +70,12 @@ export function getHighlightLanguages() {
     ObservablesComponent,
     RoutingComponent,
     CustomDirectiveComponent,
-    ModalComponent
+    ModalComponent,
+    ParentComponent,
+    AtributeDirectivesComponent,
+    StructuralDirectivesComponent,
+    CustomDirectivesComponent,
+    FormsHomeComponent
   ],
   imports: [
     HttpClientModule,

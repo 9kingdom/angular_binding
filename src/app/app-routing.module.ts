@@ -10,7 +10,7 @@ import { StyleBindingComponent } from './Examples/style-binding/style-binding.co
 import { TwowayBindingComponent } from './Examples/twoway-binding/twoway-binding.component';
 import { EventBindingComponent } from './Examples/event-binding/event-binding.component';
 import { NgIfComponent } from './Examples/ng-if/ng-if.component';
-import { DirectivesComponent } from './directives/directives.component';
+import { DirectivesComponent } from './Directives/directive_home/directives.component';
 import { NgSwitchComponent } from './Examples/ng-switch/ng-switch.component';
 import { NgForComponent } from './Examples/ng-for/ng-for.component';
 import { PipesComponent } from './pipes/pipes.component';
@@ -19,6 +19,10 @@ import { InputOutputComponent } from './Examples/input-output/input-output.compo
 import { ObservablesComponent } from './observables/observables.component';
 import { RoutingComponent } from './routing/routing.component';
 import { CustomDirectiveComponent } from './Examples/custom-directive/custom-directive.component';
+import { ParentComponent } from './Examples/parent-component/parent-component.component';
+import { AtributeDirectivesComponent } from './Directives/atribute-directives/atribute-directives.component';
+import { StructuralDirectivesComponent } from './Directives/structural-directives/structural-directives.component';
+import { FormsHomeComponent } from './Forms/forms-home/forms-home.component';
 
 const appRoutes: Routes = [
   {
@@ -42,7 +46,7 @@ const appRoutes: Routes = [
           { path: 'stylebinding', component: StyleBindingComponent },
           { path: 'twowaybinding', component: TwowayBindingComponent },
           { path: 'eventbinding', component: EventBindingComponent },
-          { path: 'inputoutput', component: InputOutputComponent }
+          { path: 'inputoutput', component: ParentComponent }
         ]
       },
       {
@@ -50,15 +54,17 @@ const appRoutes: Routes = [
         component: DirectivesComponent,
         children: [
           {
-            //thanks to this it will load automatically the 'ngswitch' component
+            //thanks to this it will load automatically the 'atributedirectives' component
             path: '',
-            redirectTo: 'ngswitch',
+            redirectTo: 'atributedirectives',
             pathMatch: 'full'
           },
+          { path: 'atributedirectives', component: AtributeDirectivesComponent },
+          { path: 'structuraldirectives', component: StructuralDirectivesComponent },
+          { path: 'customdirective', component: CustomDirectiveComponent },
           { path: 'ngif', component: NgIfComponent },
           { path: 'ngswitch', component: NgSwitchComponent },
-          { path: 'ngfor', component: NgForComponent },
-          { path: 'customdirective', component: CustomDirectiveComponent }
+          { path: 'ngfor', component: NgForComponent }
         ]
       },
       {
@@ -81,6 +87,10 @@ const appRoutes: Routes = [
       {
         path: 'routing',
         component: RoutingComponent
+      },
+      {
+        path: 'forms',
+        component: FormsHomeComponent
       }
     ]
   },
