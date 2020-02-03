@@ -9,6 +9,8 @@ export class CommonService {
 
   code = new Subject<ModalData>();
 
+  name = new Subject<string>();
+
   constructor() { }
 
 

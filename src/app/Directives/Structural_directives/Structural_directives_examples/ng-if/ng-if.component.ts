@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-ng-if',
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ng-if.component.css']
 })
 export class NgIfComponent implements OnInit {
-  bindingType = 'Built-in structural directives';
   codeNgIfHtml1 = `<div *ngIf="condition">Content to render when condition is true.</div>`;
   codeNgIfHtml2 = `<<div *ngIf="condition; then thenBlock else elseBlock"></div>
   <ng-template #thenBlock>Content to render when condition is true.</ng-template>
@@ -41,7 +41,9 @@ export class NgIfComponent implements OnInit {
     ngOnInit() { this.thenBlock = this.primaryBlock; }
   }`;
 
-  constructor() {}
+  constructor(private commonService: CommonService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.commonService.name.next('ngIf');
+  }
 }

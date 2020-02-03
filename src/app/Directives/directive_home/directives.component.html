@@ -5,43 +5,19 @@
     <div class="col-3">
       <nav class="navbar navbar-light flex-column make-me-sticky">
         <nav class="nav nav-pills flex-column" role="tablist">
-          <a
-            class="nav-link"
-            data-toggle="pill"
-            role="tab"
-            routerLink="atributedirectives"
-          >
-            <h5
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }"
-            >
+          <a class="nav-link" data-toggle="pill" role="tab" routerLink="atributedirectives">
+            <h5 routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
               Atribute Directives
             </h5>
           </a>
           <nav class="nav nav-pills flex-column">
-            <a
-              class="nav-link ml-3 my-1"
-              href="directives/atributedirectives/#ngModel"
-              >NgModel</a
-            >
-            <a
-              class="nav-link ml-3 my-1"
-              href="directives/atributedirectives/#ngClass"
-              >NgClass</a
-            >
-            <a
-              class="nav-link ml-3 my-1"
-              href="directives/atributedirectives/#ngStyle"
-              >NgStyle</a
-            >
+            <a class="nav-link ml-3 my-1" href="directives/atributedirectives/#ngModel">NgModel</a>
+            <a class="nav-link ml-3 my-1" href="directives/atributedirectives/#ngClass">NgClass</a>
+            <a class="nav-link ml-3 my-1" href="directives/atributedirectives/#ngStyle">NgStyle</a>
           </nav>
-          <a
-            class="nav-link"
-            data-toggle="pill"
-            role="tab"
-            routerLink="structuraldirectives"
-          >
+          <a class="nav-link" data-toggle="pill" role="tab" routerLink="structuraldirectives">
             <h5
+              (click)="setName('main')"
               routerLinkActive="active"
               [routerLinkActiveOptions]="{ exact: true }"
             >
@@ -50,31 +26,26 @@
           </a>
           <nav class="nav nav-pills flex-column">
             <a
+              (click)="setName('ngIf')"
               class="nav-link ml-3 my-1"
               routerLink="structuraldirectives/ngif"
               >NgIf</a
             >
             <a
+              (click)="setName('ngFor')"
               class="nav-link ml-3 my-1"
               routerLink="structuraldirectives/ngfor"
               >NgFor</a
             >
             <a
+              (click)="setName('ngSwitch')"
               class="nav-link ml-3 my-1"
               routerLink="structuraldirectives/ngswitch"
               >NgSwitch</a
             >
           </nav>
-          <a
-            class="nav-link"
-            data-toggle="pill"
-            role="tab"
-            routerLink="customdirective"
-          >
-            <h5
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }"
-            >
+          <a class="nav-link" data-toggle="pill" role="tab" routerLink="customdirective">
+            <h5 routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
               Custom directive
             </h5>
           </a>

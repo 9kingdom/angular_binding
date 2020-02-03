@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-ng-switch',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ng-switch.component.css']
 })
 export class NgSwitchComponent implements OnInit {
-
-  constructor() { }
+  constructor(private commonService: CommonService) {}
 
   ngOnInit() {
+    this.commonService.name.next('ngSwitch');
   }
-
 }

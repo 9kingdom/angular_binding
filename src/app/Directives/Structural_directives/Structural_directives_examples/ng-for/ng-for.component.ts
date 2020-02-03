@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-ng-for',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ng-for.component.css']
 })
 export class NgForComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-  }
 
+  }
 }
