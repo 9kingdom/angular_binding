@@ -1,0 +1,42 @@
+<hr id="ngIf" />
+  <div style="margin-bottom: 10px;">
+    <h3 style="display: inline;"><strong>NgIf</strong></h3>
+  </div>
+  <div class="container" style="text-align:left">
+    <p>
+      The <code><a href="api/common/NgIf" class="code-anchor">ngIf</a></code>
+      directive doesn't hide elements with CSS. It adds and removes them
+      physically from the DOM.
+    </p>
+    <p>
+      When the condition is false,
+      <code><a href="api/common/NgIf" class="code-anchor">NgIf</a></code>
+      removes its host element from the DOM, detaches it from DOM events (the
+      attachments that it made), detaches the component from Angular change
+      detection, and destroys it. The component and DOM nodes can be
+      garbage-collected and free up memory.
+    </p>
+    <p class="alert alert-info" role="alert">
+      The difference between hiding and removing doesn't matter for a simple
+      paragraph. It does matter when the host element is attached to a resource
+      intensive component. Such a component's behavior continues even when
+      hidden. The component stays attached to its DOM element. It keeps
+      listening to events. Angular keeps checking for changes that could affect
+      data bindings. Whatever the component was doing, it keeps doing.
+    </p>
+
+    <p>Simple form with shorthand syntax:</p>
+    <pre><code [highlight]="codeNgIfHtml1"></code></pre>
+    <p>Shorthand form with "then" and "else" blocks:</p>
+    <pre><code [highlight]="codeNgIfHtml2"></code></pre>
+    <p>
+      In the previous example, the then-clause template is specified inline, as
+      the content of the tag that contains the
+      <code><a href="api/common/NgIf" class="code-anchor">ngIf</a></code>
+      directive. You can also specify a template that is defined externally, by
+      referencing a labeled <code>&lt;ng-template&gt;</code> element. When you
+      do this, you can change which template to use at runtime, as shown in the
+      following example.
+    </p>
+    <pre><code [highlight]="codeNgIfHtml3"></code></pre>
+  </div>

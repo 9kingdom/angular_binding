@@ -3,36 +3,83 @@
   <hr />
   <div class="row">
     <div class="col-3">
-      <nav id="navbar11" class="navbar navbar-light flex-column">
+      <nav class="navbar navbar-light flex-column make-me-sticky">
         <nav class="nav nav-pills flex-column" role="tablist">
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="atributedirectives">
-            <h5 routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="atributedirectives"
+          >
+            <h5
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
               Atribute Directives
             </h5>
           </a>
           <nav class="nav nav-pills flex-column">
-            <a class="nav-link ml-3 my-1" href="directives/atributedirectives/#ngModel">NgModel</a>
-            <a class="nav-link ml-3 my-1" href="directives/atributedirectives/#ngClass">NgClass</a>
-            <a class="nav-link ml-3 my-1" href="directives/atributedirectives/#ngStyle">NgStyle</a>
+            <a
+              class="nav-link ml-3 my-1"
+              href="directives/atributedirectives/#ngModel"
+              >NgModel</a
+            >
+            <a
+              class="nav-link ml-3 my-1"
+              href="directives/atributedirectives/#ngClass"
+              >NgClass</a
+            >
+            <a
+              class="nav-link ml-3 my-1"
+              href="directives/atributedirectives/#ngStyle"
+              >NgStyle</a
+            >
           </nav>
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="structuraldirectives">
-            <h5 routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="structuraldirectives"
+          >
+            <h5
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
               Structural Directives
             </h5>
           </a>
           <nav class="nav nav-pills flex-column">
-            <a class="nav-link ml-3 my-1" href="#item-3-1">NgIf</a>
-            <a class="nav-link ml-3 my-1" href="#item-3-2">NgFor</a>
-            <a class="nav-link ml-3 my-1" href="#item-3-2">NgSwitch</a>
+            <a
+              class="nav-link ml-3 my-1"
+              routerLink="structuraldirectives/ngif"
+              >NgIf</a
+            >
+            <a
+              class="nav-link ml-3 my-1"
+              routerLink="structuraldirectives/ngfor"
+              >NgFor</a
+            >
+            <a
+              class="nav-link ml-3 my-1"
+              routerLink="structuraldirectives/ngswitch"
+              >NgSwitch</a
+            >
           </nav>
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="customdirective">
-            <h5 routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="customdirective"
+          >
+            <h5
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
               Custom directive
             </h5>
           </a>
           <nav class="nav nav-pills flex-column">
             <a class="nav-link ml-3 my-1" href="#item-3-1">Item 3-1</a>
-            <a class="nav-link ml-3 my-1" href="#item-3-2">Item 3-2</a>
           </nav>
         </nav>
       </nav>
@@ -42,19 +89,3 @@
     </div>
   </div>
 </div>
-<!-- <div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
-    <h4 id="item-1">Item 1</h4>
-    <p>...</p>
-    <h5 id="item-1-1">Item 1-1</h5>
-    <p>...</p>
-    <h5 id="item-1-2">Item 1-2</h5>
-    <p>...</p>
-    <h4 id="item-2">Item 2</h4>
-    <p>...</p>
-    <h4 id="item-3">Item 3</h4>
-    <p>...</p>
-    <h5 id="item-3-1">Item 3-1</h5>
-    <p>...</p>
-    <h5 id="item-3-2">Item 3-2</h5>
-    <p>...</p>
-  </div> -->

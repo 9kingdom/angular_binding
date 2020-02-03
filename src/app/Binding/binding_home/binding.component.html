@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <hr />
+  <div class="row">
+    <div class="col-3">
+      <nav
+        class="navbar navbar-light flex-column make-me-sticky"
+        role="tablist"
+      >
+        <nav class="nav nav-pills flex-column" role="tablist">
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="interpolation"
+          >
+            <h5>Interpolation</h5>
+          </a>
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="propertybinding"
+          >
+            <h5>Property Binding</h5>
+          </a>
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="classbinding"
+          >
+            <h5>Class Binding</h5>
+          </a>
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="stylebinding"
+          >
+            <h5>Style Binding</h5>
+          </a>
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="twowaybinding"
+          >
+            <h5>Two-way Binding</h5>
+          </a>
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="eventbinding"
+          >
+            <h5>Event Binding</h5>
+          </a>
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="inputoutput"
+          >
+            <h5>@Input/@Output</h5>
+          </a>
+        </nav>
+      </nav>
+    </div>
+    <div class="col-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

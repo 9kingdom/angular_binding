@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-parent-component',
-  templateUrl: './parent-component.component.html',
-  styleUrls: ['./parent-component.component.css']
+  selector: "app-parent-component",
+  templateUrl: "./parent-component.component.html",
+  styleUrls: ["./parent-component.component.css"]
 })
 export class ParentComponent implements OnInit {
   parentCode = `
   export class ParentComponent implements OnInit {
-    fromParent = 'from parent to child';
+    fromParent = 'from parent';
 
     varToSentBackValueToChild = '';
 
@@ -29,9 +29,9 @@ export class ParentComponent implements OnInit {
   </app-input-output>
 `;
 
-  fromParent = 'from parent to child';
+  fromParent = "from parent";
 
-  varToSentBackValueToChild = '';
+  varToSentBackValueToChild = "";
 
   constructor() {}
 

@@ -2,27 +2,26 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { BindingComponent } from './binding/binding.component';
-import { InterpolationComponent } from './Examples/interpolation/interpolation.component';
-import { PropertyBindingComponent } from './Examples/property-binding/property-binding.component';
-import { ClassBindingComponent } from './Examples/class-binding/class-binding.component';
-import { StyleBindingComponent } from './Examples/style-binding/style-binding.component';
-import { TwowayBindingComponent } from './Examples/twoway-binding/twoway-binding.component';
-import { EventBindingComponent } from './Examples/event-binding/event-binding.component';
-import { NgIfComponent } from './Examples/ng-if/ng-if.component';
+import { BindingComponent } from './Binding/binding_home/binding.component';
+import { InterpolationComponent } from './Binding/binding_examples/interpolation/interpolation.component';
+import { PropertyBindingComponent } from './Binding/binding_examples/property-binding/property-binding.component';
+import { ClassBindingComponent } from './Binding/binding_examples/class-binding/class-binding.component';
+import { StyleBindingComponent } from './Binding/binding_examples/style-binding/style-binding.component';
+import { TwowayBindingComponent } from './Binding/binding_examples/twoway-binding/twoway-binding.component';
+import { EventBindingComponent } from './Binding/binding_examples/event-binding/event-binding.component';
 import { DirectivesComponent } from './Directives/directive_home/directives.component';
-import { NgSwitchComponent } from './Examples/ng-switch/ng-switch.component';
-import { NgForComponent } from './Examples/ng-for/ng-for.component';
 import { PipesComponent } from './pipes/pipes.component';
-import { PipesExampleComponent } from './Examples/pipes/pipes-examples.component';
-import { InputOutputComponent } from './Examples/input-output/input-output.component';
+import { PipesExampleComponent } from './Binding/binding_examples/pipes/pipes-examples.component';
 import { ObservablesComponent } from './observables/observables.component';
 import { RoutingComponent } from './routing/routing.component';
-import { CustomDirectiveComponent } from './Examples/custom-directive/custom-directive.component';
-import { ParentComponent } from './Examples/parent-component/parent-component.component';
+import { ParentComponent } from './Binding/binding_examples/parent-component/parent-component.component';
 import { AtributeDirectivesComponent } from './Directives/atribute-directives/atribute-directives.component';
-import { StructuralDirectivesComponent } from './Directives/structural-directives/structural-directives.component';
+import { StructuralDirectivesComponent } from './Directives/Structural_directives/structural-directives/structural-directives.component';
 import { FormsHomeComponent } from './Forms/forms-home/forms-home.component';
+import { CustomDirectivesComponent } from './Directives/custom-directives/custom-directives.component';
+import { NgIfComponent } from './Directives/Structural_directives/Structural_directives_examples/ng-if/ng-if.component';
+import { NgForComponent } from './Directives/Structural_directives/Structural_directives_examples/ng-for/ng-for.component';
+import { NgSwitchComponent } from './Directives/Structural_directives/Structural_directives_examples/ng-switch/ng-switch.component';
 
 const appRoutes: Routes = [
   {
@@ -35,7 +34,7 @@ const appRoutes: Routes = [
         component: BindingComponent,
         children: [
           {
-            //thanks to this route it will load automatically the 'interpolation' component every time 'Binding section is selected
+            // thanks to this route it will load automatically the 'interpolation' component every time 'Binding section is selected
             path: '',
             redirectTo: 'interpolation',
             pathMatch: 'full'
@@ -54,14 +53,25 @@ const appRoutes: Routes = [
         component: DirectivesComponent,
         children: [
           {
-            //thanks to this it will load automatically the 'atributedirectives' component
+            // thanks to this it will load automatically the 'atributedirectives' component
             path: '',
             redirectTo: 'atributedirectives',
             pathMatch: 'full'
           },
-          { path: 'atributedirectives', component: AtributeDirectivesComponent },
-          { path: 'structuraldirectives', component: StructuralDirectivesComponent },
-          { path: 'customdirective', component: CustomDirectiveComponent },
+          {
+            path: 'atributedirectives',
+            component: AtributeDirectivesComponent
+          },
+          {
+            path: 'structuraldirectives',
+            component: StructuralDirectivesComponent,
+            children: [
+              { path: 'ngif', component: NgIfComponent },
+              { path: 'ngfor', component: NgForComponent },
+              { path: 'ngswitch', component: NgSwitchComponent }
+            ]
+          },
+          { path: 'customdirective', component: CustomDirectivesComponent },
           { path: 'ngif', component: NgIfComponent },
           { path: 'ngswitch', component: NgSwitchComponent },
           { path: 'ngfor', component: NgForComponent }
@@ -72,7 +82,7 @@ const appRoutes: Routes = [
         component: PipesComponent,
         children: [
           {
-            //thanks to this it will load automatically the 'pipesexample' component
+            // thanks to this it will load automatically the 'pipesexample' component
             path: '',
             redirectTo: 'pipesexample',
             pathMatch: 'full'

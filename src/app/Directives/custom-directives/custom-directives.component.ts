@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomDirectivesComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+    bindingType = 'Custom directives';
+    ngClassCodeHtml = ``;
+
+    ngClassCodeTs = ``;
+
+    ngClassCodeHtml2 = ``;
+
+    ngStyleCodeHtml = ``;
+
+    ngStyleCodeTs = ``;
+    ngStyleCodeHtml2 = ``;
+
+    ngModelCodeHtml = ``;
+
+    ngModelCodeImport = ``;
+
+    constructor() {}
+
+    ngOnInit() {}
   }
 
-}

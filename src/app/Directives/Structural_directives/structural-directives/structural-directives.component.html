@@ -15,7 +15,9 @@
   <br />
   <div class="alert alert-secondary" role="alert">
     <p>
-      aaaaa
+      Structural directives are responsible for HTML layout. They shape or
+      reshape the DOM's <em>structure</em>, typically by adding, removing, or
+      manipulating elements.
     </p>
     <p>
       The most common attribute directives are as follows:
@@ -36,21 +38,12 @@
       </li>
     </ul>
   </div>
-  <hr id="ngIf" />
-  <div style="margin-bottom: 10px;">
-    <h3 style="display: inline;"><strong>NgIf</strong></h3>
-  </div>
-  <div class="container" style="text-align:left">
-    dddd
-  </div>
-  <hr id="ngFor" />
-  <h3><strong>NgFor</strong></h3>
-  <div class="container" style="text-align:left">
-    ddddd
-  </div>
-  <hr id="ngSwitch" />
-  <h3><strong>NgSwitch</strong></h3>
-  <div class="container" style="text-align:left">
-    dddddddd
-  </div>
+  <p class="alert alert-info" role="alert">
+    You can apply many <em>attribute</em> directives to one host element. You
+    can
+    <a href="guide/structural-directives#one-per-element">only apply one </a>
+    <em>structural</em> directive to a host element.
+  </p>
+  <router-outlet></router-outlet>
+
 </div>

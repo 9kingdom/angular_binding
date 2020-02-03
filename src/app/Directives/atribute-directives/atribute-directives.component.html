@@ -34,63 +34,8 @@
       </li>
     </ul>
   </div>
-  <hr />
-  <h3 id="ngClass"><strong>NgClass</strong></h3>
-  <div class="container" style="text-align:left">
-    <p>Add or remove several CSS classes simultaneously with ngClass.</p>
-    <pre><code [highlight]="ngClassCodeHtml"></code></pre>
-    <div class="alert alert-info" role="alert">
-      To add or remove a single class, use <strong>class binding</strong> rather than
-      <strong>NgClass</strong>.
-    </div>
-    <p>
-      Consider a <code>setCurrentClasses()</code> component method that sets a component property,
-      <code>currentClasses</code>, with an object that adds or removes three classes based on the
-      <code>true</code>/<code>false</code> state of three other component properties. Each key of
-      the object is a CSS class name; its value is <code>true</code> if the class should be added,
-      <code>false</code> if it should be removed.
-    </p>
-    <pre><code [highlight] = "ngClassCodeTs"></code></pre>
-    <p>
-      Adding an ngClass property binding to currentClasses sets the element's classes accordingly:
-    </p>
-    <pre><code [highlight]="ngClassCodeHtml2"></code></pre>
-    <div class="alert alert-info" role="alert">
-      Remember that in this situation you'd call <code>setCurrentClasses()</code>, both initially
-      and when the dependent properties change..
-    </div>
-  </div>
-  <hr />
-  <h3 id="ngStyle"><strong>NgStyle</strong></h3>
-  <div class="container" style="text-align:left">
-    <p>
-      Use NgStyle to set many inline styles simultaneously and dynamically, based on the state of
-      the component.
-    </p>
-    <p>For context, consider setting a single style value with style binding without NgStyle.</p>
-    <pre><code [highlight] = "ngStyleCodeHtml"></code></pre>
-    <p>
-      However, to set <em>many</em> inline styles at the same time, use the
-      <code><a href="api/common/NgStyle" class="code-anchor">NgStyle</a></code> directive.
-    </p>
-    <p>
-      The following is a <code>setCurrentStyles()</code> method that sets a component property,
-      <code>currentStyles</code>, with an object that defines three styles, based on the state of
-      three other component properties:
-    </p>
-    <pre><code [highlight] = "ngStyleCodeTs"></code></pre>
-    <p>
-      Adding an <code><a href="api/common/NgStyle" class="code-anchor">ngStyle</a></code> property
-      binding to <code>currentStyles</code> sets the element's styles accordingly:
-    </p>
-    <pre><code [highlight] = "ngStyleCodeHtml2"></code></pre>
-    <div class="alert alert-info" role="alert">
-      Remember to call <code>setCurrentStyles()</code>, both initially and when the dependent
-      properties change.
-    </div>
-  </div>
-  <hr />
-  <div id="ngModel" style="margin-bottom: 10px;">
+  <hr id="ngModel"/>
+  <div style="margin-bottom: 10px;">
     <h3 style="display: inline;"><strong>NgModel</strong></h3>
     <span> (example available <a href="binding/twowaybinding" class="code-anchor">here</a>)</span>
   </div>
@@ -122,5 +67,60 @@
       follows:
     </p>
     <pre><code [highlight] = "ngModelCodeImport"></code></pre>
+  </div>
+  <hr id="ngClass">
+  <h3 ><strong>NgClass</strong></h3>
+  <div class="container" style="text-align:left">
+    <p>Add or remove several CSS classes simultaneously with ngClass.</p>
+    <pre><code [highlight]="ngClassCodeHtml"></code></pre>
+    <div class="alert alert-info" role="alert">
+      To add or remove a single class, use <strong>class binding</strong> rather than
+      <strong>NgClass</strong>.
+    </div>
+    <p>
+      Consider a <code>setCurrentClasses()</code> component method that sets a component property,
+      <code>currentClasses</code>, with an object that adds or removes three classes based on the
+      <code>true</code>/<code>false</code> state of three other component properties. Each key of
+      the object is a CSS class name; its value is <code>true</code> if the class should be added,
+      <code>false</code> if it should be removed.
+    </p>
+    <pre><code [highlight] = "ngClassCodeTs"></code></pre>
+    <p>
+      Adding an ngClass property binding to currentClasses sets the element's classes accordingly:
+    </p>
+    <pre><code [highlight]="ngClassCodeHtml2"></code></pre>
+    <div class="alert alert-info" role="alert">
+      Remember that in this situation you'd call <code>setCurrentClasses()</code>, both initially
+      and when the dependent properties change..
+    </div>
+  </div>
+  <hr  id="ngStyle"/>
+  <h3><strong>NgStyle</strong></h3>
+  <div class="container" style="text-align:left">
+    <p>
+      Use NgStyle to set many inline styles simultaneously and dynamically, based on the state of
+      the component.
+    </p>
+    <p>For context, consider setting a single style value with style binding without NgStyle.</p>
+    <pre><code [highlight] = "ngStyleCodeHtml"></code></pre>
+    <p>
+      However, to set <em>many</em> inline styles at the same time, use the
+      <code><a href="api/common/NgStyle" class="code-anchor">NgStyle</a></code> directive.
+    </p>
+    <p>
+      The following is a <code>setCurrentStyles()</code> method that sets a component property,
+      <code>currentStyles</code>, with an object that defines three styles, based on the state of
+      three other component properties:
+    </p>
+    <pre><code [highlight] = "ngStyleCodeTs"></code></pre>
+    <p>
+      Adding an <code><a href="api/common/NgStyle" class="code-anchor">ngStyle</a></code> property
+      binding to <code>currentStyles</code> sets the element's styles accordingly:
+    </p>
+    <pre><code [highlight] = "ngStyleCodeHtml2"></code></pre>
+    <div class="alert alert-info" role="alert">
+      Remember to call <code>setCurrentStyles()</code>, both initially and when the dependent
+      properties change.
+    </div>
   </div>
 </div>
