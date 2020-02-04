@@ -8,10 +8,18 @@ import { ModalData } from './modal-data';
 export class CommonService {
 
   code = new Subject<ModalData>();
-
   name = new Subject<string>();
+  private initName;
 
   constructor() { }
+
+  getInitName(): string {
+    return this.initName;
+  }
+
+  setInitName(switchName: string) {
+    this.initName = switchName;
+  }
 
 
 }

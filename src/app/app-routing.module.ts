@@ -15,13 +15,16 @@ import { PipesExampleComponent } from './Binding/binding_examples/pipes/pipes-ex
 import { ObservablesComponent } from './observables/observables.component';
 import { RoutingComponent } from './routing/routing.component';
 import { ParentComponent } from './Binding/binding_examples/parent-component/parent-component.component';
-import { AtributeDirectivesComponent } from './Directives/atribute-directives/atribute-directives.component';
+import { AtributeDirectivesComponent } from './Directives/Atribute_directives/atribute-directives/atribute-directives.component';
 import { StructuralDirectivesComponent } from './Directives/Structural_directives/structural-directives/structural-directives.component';
 import { FormsHomeComponent } from './Forms/forms-home/forms-home.component';
 import { CustomDirectivesComponent } from './Directives/custom-directives/custom-directives.component';
 import { NgIfComponent } from './Directives/Structural_directives/Structural_directives_examples/ng-if/ng-if.component';
 import { NgForComponent } from './Directives/Structural_directives/Structural_directives_examples/ng-for/ng-for.component';
 import { NgSwitchComponent } from './Directives/Structural_directives/Structural_directives_examples/ng-switch/ng-switch.component';
+import { NgModelComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-model/ng-model.component';
+import { NgClassComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-class/ng-class.component';
+import { NgStyleComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-style/ng-style.component';
 
 const appRoutes: Routes = [
   {
@@ -60,7 +63,12 @@ const appRoutes: Routes = [
           },
           {
             path: 'atributedirectives',
-            component: AtributeDirectivesComponent
+            component: AtributeDirectivesComponent,
+            children: [
+              { path: 'ngmodel', component: NgModelComponent },
+              { path: 'ngclass', component: NgClassComponent },
+              { path: 'ngstyle', component: NgStyleComponent }
+            ]
           },
           {
             path: 'structuraldirectives',
@@ -111,4 +119,4 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

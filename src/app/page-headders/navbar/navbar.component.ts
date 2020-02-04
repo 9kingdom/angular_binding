@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,7 @@ export class NavbarComponent implements OnInit {
   hideAdditionalNav = false;
   title = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private commonService: CommonService) {}
 
   ngOnInit() {
     if (this.route.routeConfig.component.name === 'HomeComponent') {
@@ -44,4 +45,10 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
+
+  setName(name: string) {
+    this.commonService.name.next(name);
+    this.commonService.setInitName(name);
+  }
+
 }

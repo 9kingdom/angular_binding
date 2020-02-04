@@ -1,0 +1,28 @@
+  <h3><strong>NgStyle</strong></h3>
+  <div class="container" style="text-align:left">
+    <p>
+      Use NgStyle to set many inline styles simultaneously and dynamically, based on the state of
+      the component.
+    </p>
+    <p>For context, consider setting a single style value with style binding without NgStyle.</p>
+    <pre><code [highlight] = "ngStyleCodeHtml"></code></pre>
+    <p>
+      However, to set <em>many</em> inline styles at the same time, use the
+      <code><a href="api/common/NgStyle" class="code-anchor">NgStyle</a></code> directive.
+    </p>
+    <p>
+      The following is a <code>setCurrentStyles()</code> method that sets a component property,
+      <code>currentStyles</code>, with an object that defines three styles, based on the state of
+      three other component properties:
+    </p>
+    <pre><code [highlight] = "ngStyleCodeTs"></code></pre>
+    <p>
+      Adding an <code><a href="api/common/NgStyle" class="code-anchor">ngStyle</a></code> property
+      binding to <code>currentStyles</code> sets the element's styles accordingly:
+    </p>
+    <pre><code [highlight] = "ngStyleCodeHtml2"></code></pre>
+    <div class="alert alert-info" role="alert">
+      Remember to call <code>setCurrentStyles()</code>, both initially and when the dependent
+      properties change.
+    </div>
+  </div>

@@ -1,0 +1,40 @@
+<div *ngIf="componentName==='main'" class="container-fluid" style="text-align:left" data-spy="scroll" data-target="#navbar11" data-offset="0">
+  <div class="row">
+    <div class="col">
+      <h1 [style.color]="'red'">
+        <strong>{{ bindingType }}</strong>
+      </h1>
+    </div>
+  </div>
+  <br />
+  <div class="alert alert-secondary" role="alert">
+    <p>
+      Attribute directives listen to and modify the behavior of other HTML elements, attributes,
+      properties, and components. You usually apply them to elements as if they were HTML
+      attributes, hence the name.
+    </p>
+    <p>
+      Many NgModules such as the
+      <a href="guide/router" title="Routing and Navigation"><code>RouterModule</code></a> and the
+      <a href="guide/forms" title="Forms"><code>FormsModule</code></a> define their own attribute
+      directives. The most common attribute directives are as follows:
+    </p>
+    <ul>
+      <li>
+        <a href="directives/atributedirectives/#ngClass"><code>NgClass</code></a
+        >—adds and removes a set of CSS classes.
+      </li>
+      <li>
+        <a href="directives/atributedirectives/#ngStyle"><code>NgStyle</code></a
+        >—adds and removes a set of HTML styles.
+      </li>
+      <li>
+        <a href="directives/atributedirectives/#ngModel"><code>NgModel</code></a
+        >—adds two-way data binding to an HTML form element.
+      </li>
+    </ul>
+  </div>
+</div>
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>

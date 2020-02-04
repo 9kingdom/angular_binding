@@ -1,17 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CommonService } from 'src/app/common.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-structural-directives',
-  templateUrl: './structural-directives.component.html',
-  styleUrls: ['./structural-directives.component.css']
+  selector: 'app-atribute-directives',
+  templateUrl: './atribute-directives.component.html',
+  styleUrls: ['./atribute-directives.component.css']
 })
-export class StructuralDirectivesComponent implements OnInit, OnDestroy {
-  bindingType = 'Built-in structural directives';
+export class AtributeDirectivesComponent implements OnInit, OnDestroy {
+  bindingType = 'Built-in attribute directives';
   private nameSubscription: Subscription;
-  componentName: string;
+  componentName = '';
 
   constructor(private commonService: CommonService) { }
 

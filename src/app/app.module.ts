@@ -28,13 +28,16 @@ import { RoutingComponent } from './routing/routing.component';
 import { CustomDirectiveComponent } from './Binding/binding_examples/custom-directive/custom-directive.component';
 import { ModalComponent } from './page-headders/modal/modal.component';
 import { ParentComponent } from './Binding/binding_examples/parent-component/parent-component.component';
-import { AtributeDirectivesComponent } from './Directives/atribute-directives/atribute-directives.component';
+import { AtributeDirectivesComponent } from './Directives/Atribute_directives/atribute-directives/atribute-directives.component';
 import { StructuralDirectivesComponent } from './Directives/Structural_directives/structural-directives/structural-directives.component';
 import { CustomDirectivesComponent } from './Directives/custom-directives/custom-directives.component';
 import { FormsHomeComponent } from './Forms/forms-home/forms-home.component';
 import { NgForComponent } from './Directives/Structural_directives/Structural_directives_examples/ng-for/ng-for.component';
 import { NgIfComponent } from './Directives/Structural_directives/Structural_directives_examples/ng-if/ng-if.component';
 import { NgSwitchComponent } from './Directives/Structural_directives/Structural_directives_examples/ng-switch/ng-switch.component';
+import { NgModelComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-model/ng-model.component';
+import { NgClassComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-class/ng-class.component';
+import { NgStyleComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-style/ng-style.component';
 
 export function getHighlightLanguages() {
   return {
@@ -75,7 +78,10 @@ export function getHighlightLanguages() {
     AtributeDirectivesComponent,
     StructuralDirectivesComponent,
     CustomDirectivesComponent,
-    FormsHomeComponent
+    FormsHomeComponent,
+    NgModelComponent,
+    NgClassComponent,
+    NgStyleComponent
   ],
   imports: [
     HttpClientModule,

@@ -15,5 +15,6 @@ export class DirectivesComponent implements OnInit {
 
   setName(name: string) {
     this.commonService.name.next(name);
+    this.commonService.setInitName(name);
   }
 }
