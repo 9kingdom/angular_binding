@@ -5,26 +5,37 @@
     <div class="col-3">
       <nav class="navbar navbar-light flex-column make-me-sticky" role="tablist">
         <nav class="nav nav-pills flex-column" role="tablist">
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="interpolation" routerLinkActive="active">
+          <a class="nav-link" data-toggle="pill" role="tab" routerLink="interpolation" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
             <h5>Interpolation</h5>
           </a>
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="propertybinding">
+          <a class="nav-link" data-toggle="pill" role="tab" routerLink="propertybinding" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
             <h5>Property Binding</h5>
           </a>
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="classbinding">
+          <a class="nav-link" data-toggle="pill" role="tab" routerLink="classbinding" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
             <h5>Class Binding</h5>
           </a>
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="stylebinding">
+          <a class="nav-link" data-toggle="pill" role="tab" routerLink="stylebinding" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
             <h5>Style Binding</h5>
           </a>
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="twowaybinding">
+          <a class="nav-link" data-toggle="pill" role="tab" routerLink="twowaybinding" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
             <h5>Two-way Binding</h5>
           </a>
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="eventbinding">
+          <a class="nav-link" data-toggle="pill" role="tab" routerLink="eventbinding" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
             <h5>Event Binding</h5>
           </a>
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="inputoutput">
+          <a class="nav-link" data-toggle="pill" role="tab" routerLink="inputoutput" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
             <h5>@Input/@Output</h5>
+          </a>
+          <a class="nav-link" data-toggle="pill" role="tab" routerLink="viewchild" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            <h5>@ViewChild</h5>
           </a>
         </nav>
       </nav>

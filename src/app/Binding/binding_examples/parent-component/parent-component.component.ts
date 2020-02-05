@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { InputOutputComponent } from '../input-output/input-output.component';
 
 @Component({
-  selector: "app-parent-component",
-  templateUrl: "./parent-component.component.html",
-  styleUrls: ["./parent-component.component.css"]
+  selector: 'app-parent-component',
+  templateUrl: './parent-component.component.html',
+  styleUrls: ['./parent-component.component.css']
 })
 export class ParentComponent implements OnInit {
   parentCode = `
@@ -29,13 +30,17 @@ export class ParentComponent implements OnInit {
   </app-input-output>
 `;
 
-  fromParent = "from parent";
+  fromParent = 'from parent';
 
-  varToSentBackValueToChild = "";
+  varToSentBackValueToChild = '';
 
-  constructor() {}
+  @ViewChild(InputOutputComponent, { static: true }) inputOutputComp: InputOutputComponent;
 
-  ngOnInit() {}
+  constructor() { }
+
+  ngOnInit(): void {
+    console.log(this.inputOutputComp);
+  }
 
   recivedItem(fromChild: string) {
     this.varToSentBackValueToChild = fromChild;

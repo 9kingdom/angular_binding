@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-binding',
@@ -8,8 +7,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class BindingComponent implements OnInit {
 
-  constructor( private route: ActivatedRoute ) { }
+  constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 }

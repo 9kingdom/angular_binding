@@ -1,0 +1,70 @@
+<div class="container-fluid" style="text-align:left" data-spy="scroll" data-target="#navbar11" data-offset="0">
+  <div class="row">
+    <div class="col">
+      <h1 [style.color]="'red'">
+        <strong>{{ bindingType }}</strong>
+      </h1>
+    </div>
+  </div>
+  <br />
+  <div class="alert alert-secondary" role="alert">
+    <p>Usually we can coordinate multiple components and HTML elements directly in the template by using references (for
+      instance #id).</p>
+    <p>Sometimes, however, the <strong>parent component</strong> might need references to the multiple elements that it
+      contains inside its template, in order to mediate their interaction.</p>
+    <p>If that's the case, then we can obtain references to those template elements and have them injected into the
+      <strong>parent component</strong> class by querying the template: that's what @ViewChild is for.</p>
+  </div>
+  <h5>Using @ViewChild to inject a reference to a component</h5>
+  <p>Let's say that <code>parent component</code> needs a reference to the <code>child component</code> that it uses
+    inside its template, in order to call a method directly on it.</p>
+  <pre><code [highlight]= "viewChildCode1"></code></pre>
+  <p>Although it is possible to get entire class as an object (see below example of such object printed to the
+    console) it is better to limit requested query. </p>
+  <p>The following selectors are supported.</p>
+  <ul>
+    <li>Any class with the <code>@<a class="code-anchor">Component</a></code> or <code>@<a
+          class="code-anchor">Directive</a></code> decorator</li>
+    <li>A template reference variable as a string (e.g. query <code>&lt;my-component
+        #cmp&gt;&lt;/my-component&gt;</code>
+      with <code>@<a class="code-anchor">ViewChild</a>('cmp')</code>)</li>
+    <li>Any provider defined in the child component tree of the current component (e.g.
+      <code>@<a class="code-anchor">ViewChild</a>(SomeService) someService:
+        SomeService</code>)</li>
+    <li>Any provider defined through a string token (e.g. <code>@<a class="code-anchor">ViewChild</a>('someToken')
+        someTokenVal: any</code>)</li>
+    <li>A <code><a class="code-anchor">TemplateRef</a></code> (e.g. query
+      <code>&lt;ng-template&gt;&lt;/ng-template&gt;</code> with <code>@<a class="code-anchor">ViewChild</a>(<a
+          class="code-anchor">TemplateRef</a>)
+        template;</code>)</li>
+  </ul>
+  <h5>Using @ViewChild to inject a reference to a component</h5>
+  <p>@ViewChild can only see elements inside the template of the component itself. It's important to realize that
+    @ViewChild cannot be used to inject:</p>
+  <ul>
+    <li>Anything inside the templates of its child components i.e. if child component contains another sub component,
+      the sub component is not visible to parent</li>
+    <li>and neither anything in the template of parent components as well</li>
+  </ul>
+  <h5>Using @ViewChild to inject a reference to a DOM element</h5>
+  <p>Assign a template reference to the HTML tag that we want to inject:</p>
+  <pre><code [highlight]= "viewChildCode3"></code></pre>
+  <p>As we can see, we have assigned the #title template reference to the h2 tag. We can now have the h2 element
+    injected directly into our component class in the following way:</p>
+  <pre><code [highlight]= "viewChildCode4"></code></pre>
+  <p><i>*using the nativeElement property, we can now apply any native DOM operation to the h2 title tag, such as for
+      example addEventListener().</i></p>
+  <p>Default behaviour of @ViewChild injection by template reference</p>
+  <ul>
+    <li>
+      <p>when injecting a reference applied to a <i>component</i>, we get back the component instance </p>
+    </li>
+    <li>
+      <p>when injecting a reference to a <i>plain HTML element</i>, we get back the corresponding wrapped DOM element
+        (<i>ElementRef</i>)</p>
+    </li>
+  </ul>
+
+  <h5>Example of received object printed to the console:</h5>
+  <pre><code [highlight]= "viewChidCode2"></code></pre>
+</div>

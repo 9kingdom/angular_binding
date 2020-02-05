@@ -25,6 +25,7 @@ import { NgSwitchComponent } from './Directives/Structural_directives/Structural
 import { NgModelComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-model/ng-model.component';
 import { NgClassComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-class/ng-class.component';
 import { NgStyleComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-style/ng-style.component';
+import { ViewchildComponent } from './Binding/binding_examples/viewchild/viewchild.component';
 
 const appRoutes: Routes = [
   {
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
           { path: 'stylebinding', component: StyleBindingComponent },
           { path: 'twowaybinding', component: TwowayBindingComponent },
           { path: 'eventbinding', component: EventBindingComponent },
-          { path: 'inputoutput', component: ParentComponent }
+          { path: 'inputoutput', component: ParentComponent },
+          { path: 'viewchild', component: ViewchildComponent }
         ]
       },
       {
