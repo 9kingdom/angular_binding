@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { HighlightModule, HIGHLIGHT_OPTIONS, HighlightOptions } from 'ngx-highlightjs';
 import { AppComponent } from './app.component';
 import { InterpolationComponent } from './Binding/binding_examples/interpolation/interpolation.component';
@@ -13,8 +13,6 @@ import { EventBindingComponent } from './Binding/binding_examples/event-binding/
 import { TwowayBindingComponent } from './Binding/binding_examples/twoway-binding/twoway-binding.component';
 import { InputOutputComponent } from './Binding/binding_examples/input-output/input-output.component';
 import { PipesExampleComponent } from './Binding/binding_examples/pipes/pipes-examples.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { NavbarComponent } from './page-headders/navbar/navbar.component';
 import { JumbotronComponent } from './page-headders/jumbotron/jumbotron.component';
 import { FooterComponent } from './page-headders/footer/footer.component';
