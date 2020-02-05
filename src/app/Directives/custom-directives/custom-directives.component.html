@@ -1,10 +1,4 @@
-<div
-  class="container-fluid"
-  style="text-align:left"
-  data-spy="scroll"
-  data-target="#navbar11"
-  data-offset="0"
->
+<div class="container-fluid" style="text-align:left" data-spy="scroll" data-target="#navbar11" data-offset="0">
   <div class="row">
     <div class="col">
       <h1 [style.color]="'red'">
@@ -14,43 +8,20 @@
   </div>
   <br />
   <div class="alert alert-secondary" role="alert">
-    <p>
-      aaaaa
+    <p>An Angular custom (attribute) directive can be simply described as a component without a template.</p>
+    <p>Custom directives are generally special case of attribute directive. They are used when no additional
+      <strong>template</strong> is needed. The directive can execute logic and apply visual changes to the element it is
+      applied to. This is useful if you want to alter the behavior or style of existing HTML-elements, without wrapping
+      them into a new component.
     </p>
-    <p>
-      The most common attribute directives are as follows:
-    </p>
-    <ul>
-      <li>
-        <a href="directives/atributedirectives/#ngIf"><code>NgIf</code></a
-        >—adds and removes a set of CSS classes.
-      </li>
-      <li>
-        <a href="directives/atributedirectives/#ngFor"><code>NgFor</code></a
-        >—adds and removes a set of HTML styles.
-      </li>
-      <li>
-        <a href="directives/atributedirectives/#ngSwitch"
-          ><code>NgSwitch</code></a
-        >—adds two-way data binding to an HTML form element.
-      </li>
-    </ul>
   </div>
-  <hr id="ngIf" />
-  <div style="margin-bottom: 10px;">
-    <h3 style="display: inline;"><strong>NgIf</strong></h3>
-  </div>
-  <div class="container" style="text-align:left">
-    dddd
-  </div>
-  <hr id="ngFor" />
-  <h3><strong>NgFor</strong></h3>
-  <div class="container" style="text-align:left">
-    ddddd
-  </div>
-  <hr id="ngSwitch" />
-  <h3><strong>NgSwitch</strong></h3>
-  <div class="container" style="text-align:left">
-    dddddddd
-  </div>
+  <h5>Template:</h5>
+  <p>Creating a custom directive is easy. Just create a new class and decorate it with the @Directive decorator:
+    <br><code>ng generate directive example</code><br> <i>*make sure that the directive is declared in the
+      app-module.</i></p>
+  <pre><code [highlight]="customCode1"></code></pre>
+  <h5>Using the directive selector:</h5>
+  <p>Every directive has a selector, which is used to apply the directive to elements in your templates. <br>
+    The directive can be applied to HTML-elements in your templates using its selector.</p>
+  <pre><code [highlight]="customCode2"></code></pre>
 </div>

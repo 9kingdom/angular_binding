@@ -1,6 +1,8 @@
 <div style="margin-bottom: 10px;">
   <h3 style="display: inline;"><strong>NgFor</strong></h3>
 </div>
+<pre><code [highlight]="ngForCode1"></code></pre>
+<h4>Resulted table:</h4>
 <div class="container" style="text-align:left">
   <table class="table table-striped">
     <thead>
@@ -12,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let hero of heros; let i = index">
+      <tr *ngFor="let hero of heros; let i = index;">
         <td>{{i+1}}</td>
         <td>{{hero.mark}}</td>
         <td>{{hero.name}}</td>
@@ -31,19 +33,67 @@
     <li class="list-group-item">
       <h5>2. Stripe a table using even and odd:</h5>
     </li>
-    <p>Let's say that to the above table we want to add a CSS class even if the row is even and the CSS class odd if the
-      row is odd.
-
-      In order to so, we have a couple of variables available for that: <strong>even</strong> and <strong>odd</strong>,
-      that can be used in the following way together with <strong>ngClass</strong>:</p>
+    <p>Let's say that to the above table we want to add a CSS class <code>even</code> if the row is even and the CSS
+      class <code>odd</code> if the row is odd.
+      In order to do so, we have a couple of variables available for that: <strong>even</strong> and
+      <strong>odd</strong>, that can be used in the following way together with <strong>ngClass</strong>:</p>
     <pre><code [highlight]="ngForCode2"></code></pre>
-
-
-
-
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Mark</th>
+          <th scope="col">Name</th>
+          <th scope="col">Superpower</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hero of heros; let i = index; let even = even; let odd = odd"
+          [ngClass]="{ odd: odd, even: even }">
+          <td>{{i+1}}</td>
+          <td>{{hero.mark}}</td>
+          <td>{{hero.name}}</td>
+          <td>{{hero.superpower}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <li class="list-group-item">
+      <h5>3. Identifying the first and the last element of a list</h5>
+    </li>
+    <p>Just like the even and odd functionality, there are also two other variables that can be used to identify the
+      first and the last elements of the list:</p>
+    <pre><code [highlight]="ngForCode3"></code></pre>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Mark</th>
+          <th scope="col">Name</th>
+          <th scope="col">Superpower</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hero of heros; let i = index let first = first; let last = last"
+          [ngClass]="{ first: first, last: last }">
+          <td>{{i+1}}</td>
+          <td>{{hero.mark}}</td>
+          <td>{{hero.name}}</td>
+          <td>{{hero.superpower}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <li class="list-group-item">
+      <h5>4. trackBy</h5>
+    </li>
+    <p>Often NgFor is used to iterate through a list of objects with a unique ID field. In this case, we can provide a
+      trackBy function which helps Angular keep track of items in the list so that it can detect which items have been
+      added or removed and improve performance.</p>
+    <p>
+      Angular will try and track objects by reference to determine which items should be created and destroyed. However,
+      if you replace the list with a new source of objects, perhaps as a result of an API request - we can get some
+      extra performance by telling Angular how we want to keep track of things.
+    </p>
+    <li class="list-group-item">Source: <a href="https://blog.angular-university.io/angular-2-ngfor/">link1</a>
+      <a href="https://angular-2-training-book.rangle.io/directives/structural_directives/ng_for_directive"> link2</a></li>
   </ul>
-
 </div>

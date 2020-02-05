@@ -1,4 +1,23 @@
 <h3><strong>NgSwitch</strong></h3>
 <div class="container" style="text-align:left">
-  dddddddd
+  <p>The <code>[<a href="api/common/NgSwitch" class="code-anchor">ngSwitch</a>]</code> directive on a container
+    specifies an expression to match against.
+    The expressions to match are provided by <code><a href="api/common/NgSwitchCase"
+        class="code-anchor">ngSwitchCase</a></code> directives on views within the container.</p>
+  <ul>
+    <li>Every view that matches is rendered.</li>
+    <li>If there are no matches, a view with the <code><a href="api/common/NgSwitchDefault"
+          class="code-anchor">ngSwitchDefault</a></code> directive is rendered.</li>
+    <li>Elements within the <code>[<a href="api/common/NgSwitch" class="code-anchor">NgSwitch</a>]</code> statement but
+      outside of any <code><a href="api/common/NgSwitchCase" class="code-anchor">NgSwitchCase</a></code>
+      or <code><a href="api/common/NgSwitchDefault" class="code-anchor">ngSwitchDefault</a></code> directive are
+      preserved at the location.</li>
+  </ul>
+  <h5>Template:</h5>
+  <p>Define a container element for the directive, and specify the switch expression
+    to match against as an attribute:</p>
+  <pre><code [highlight] ="ngSwitchCode1"></code></pre>
+  <p>Within the container, <code>*ngSwitchCase</code> statements specify the match expressions as attributes. Include
+    <code>ngSwitchDefault</code> as the final case.</p>
+  <pre><code [highlight] ="ngSwitchCode2"></code></pre>
 </div>

@@ -1,0 +1,17 @@
+.even {
+  background-color: rgb(252, 244, 255);
+}
+
+.odd {
+  background-color: rgb(238, 252, 227);
+}
+
+.first {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.last {
+  font-style: italic;
+  font-weight: bold;
+}

@@ -9,20 +9,16 @@ export class CustomDirectivesComponent implements OnInit {
 
 
     bindingType = 'Custom directives';
-    ngClassCodeHtml = ``;
+    customCode1 = `import { Directive } from '@angular/core';
 
-    ngClassCodeTs = ``;
+    @Directive({
+      selector: '[appExample]',
+    })
+    export class ExampleDirective {
+      constructor() {}
+    }`;
 
-    ngClassCodeHtml2 = ``;
-
-    ngStyleCodeHtml = ``;
-
-    ngStyleCodeTs = ``;
-    ngStyleCodeHtml2 = ``;
-
-    ngModelCodeHtml = ``;
-
-    ngModelCodeImport = ``;
+    customCode2 = `<button appExample>Button</button>`;
 
     constructor() {}
 
