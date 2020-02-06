@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
 import { InterpolationComponent } from '../interpolation/interpolation.component';
+import * as hljs from 'highlight.js';
 
 @Component({
   selector: 'app-viewchild',
@@ -44,23 +45,74 @@ export class ViewchildComponent implements OnInit {
   parentCode: "↵  export class ParentComponent implements OnInit {↵    fromParent = 'from parent';↵↵    varToSentBackValueToChild = '';↵↵    constructor() {}↵↵    ngOnInit() {}↵↵    recivedItem(fromChild: string) {↵      this.varToSentBackValueToChild = fromChild;↵    }↵}"
   __proto__: Object`;
 
-  viewChildCode3 = `<h2 #title>Choose Brand Colors:</h2>`;
+  viewChildCode3 = `<div>
+  <div #myTestDiv> <!--Template reference variable -->
+    <h1>
+      I am the heading
+    </h1>
+  </div>
+  <button (click)="onButtonClick()">click me to hide heading</button>
+</div>`;
 
-  viewChildCode4 = `@Component({
+  viewChildCode4 = `import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+  @Component({
+    selector: 'app-test',
+    templateUrl: './test.component.html',
+    styleUrls: ['./test.component.css']
+  })
+  export class Test implements OnInit {
+
+  @ViewChild('myTestDiv') divElementRef:ElementRef;
+  divElement: HTMLElement;
+
+    constructor() { }
+
+    ngOnInit() {
+      this.divElement = this.divElementRef.nativeElement
+    }
+
+    onButtonClick(){
+      // your logic to do some processing or get data from datasource
+      // manipulate the div element based on a condition
+      this.divElement.style.visibility != "hidden" ?   this.divElement.style.visibility = "hidden" : this.divElement.style.visibility = "visible";
+    }
+  }`;
+
+  viewChildCode5 = `export class AppComponent implements AfterViewInit {
+    @ViewChild('el') el: ElementRef;
+
+    constructor(private renderer: Renderer2) {}
+
+    ngAfterViewInit() {
+      this.renderer.setProperty(this.el.nativeElement, 'innerHTML', '<h1>Hello world</h1>');
+    }
+  }`;
+
+  viewChildCode6 = `<h2 #title>Choose Brand Colors:</h2>
+
+  <color-sample [color]="primary" #primaryColorSample (click)="openColorPicker()">
+  </color-sample>
+
+  <mat-input-container>
+    <mat-label>Primary Color</mat-label>
+    <input matInput #primaryInput [(colorPicker)]="primary" [(ngModel)]="primary"/>
+  </mat-input-container>`;
+
+  viewChildCode7 = `@Component({
     selector: 'app-root',
     templateUrl: './app.component.html'
   })
-  export class ParentComponent {
-    ...
-    @ViewChild('title', {static: true}) title: ElementRef;
-    ...
+  export class AppComponent {
+    primary = '#1976d2';
+
+    @ViewChild('primaryInput', {read: ColorPickerDirective}) colorPicker: ColorPickerDirective;
+
+    openColorPicker() {
+      this.colorPicker.openDialog();
+    }
   }`;
 
   constructor() { }
 
-
-  ngOnInit(): void {
-
-  }
-
+  ngOnInit() {}
 }

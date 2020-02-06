@@ -10,10 +10,9 @@
   <div class="alert alert-secondary" role="alert">
     <p>Usually we can coordinate multiple components and HTML elements directly in the template by using references (for
       instance #id).</p>
-    <p>Sometimes, however, the <strong>parent component</strong> might need references to the multiple elements that it
-      contains inside its template, in order to mediate their interaction.</p>
-    <p>If that's the case, then we can obtain references to those template elements and have them injected into the
-      <strong>parent component</strong> class by querying the template: that's what @ViewChild is for.</p>
+    <p>Sometimes, however we might need references to the multiple elements inside template. With @ViewChild we can
+      obtain references to those template elements and have them injected into the component or <strong>parent
+        component</strong> class by querying the template: that's what @ViewChild is for.</p>
   </div>
   <h5>Using @ViewChild to inject a reference to a component</h5>
   <p>Let's say that <code>parent component</code> needs a reference to the <code>child component</code> that it uses
@@ -21,7 +20,7 @@
   <pre><code [highlight]= "viewChildCode1"></code></pre>
   <p>Although it is possible to get entire class as an object (see below example of such object printed to the
     console) it is better to limit requested query. </p>
-  <p>The following selectors are supported.</p>
+  <p>For that, the following selectors are supported.</p>
   <ul>
     <li>Any class with the <code>@<a class="code-anchor">Component</a></code> or <code>@<a
           class="code-anchor">Directive</a></code> decorator</li>
@@ -38,7 +37,17 @@
           class="code-anchor">TemplateRef</a>)
         template;</code>)</li>
   </ul>
-  <h5>Using @ViewChild to inject a reference to a component</h5>
+  <p>Default behaviour of @ViewChild injection by template reference</p>
+  <ul>
+    <li>
+      <p>when injecting a reference applied to a <i>component</i>, we get back the <strong>component instance</strong>
+      </p>
+    </li>
+    <li>
+      <p>when injecting a reference to a <i>plain HTML element</i>, we get back the corresponding wrapped <strong>DOM
+          element</strong> (<i>ElementRef</i>)</p>
+    </li>
+  </ul>
   <p>@ViewChild can only see elements inside the template of the component itself. It's important to realize that
     @ViewChild cannot be used to inject:</p>
   <ul>
@@ -46,25 +55,25 @@
       the sub component is not visible to parent</li>
     <li>and neither anything in the template of parent components as well</li>
   </ul>
+
   <h5>Using @ViewChild to inject a reference to a DOM element</h5>
   <p>Assign a template reference to the HTML tag that we want to inject:</p>
   <pre><code [highlight]= "viewChildCode3"></code></pre>
-  <p>As we can see, we have assigned the #title template reference to the h2 tag. We can now have the h2 element
+  <p>As we can see, we have assigned the #myTestDiv template reference to the div tag. We can now have this element
     injected directly into our component class in the following way:</p>
   <pre><code [highlight]= "viewChildCode4"></code></pre>
-  <p><i>*using the nativeElement property, we can now apply any native DOM operation to the h2 title tag, such as for
-      example addEventListener().</i></p>
-  <p>Default behaviour of @ViewChild injection by template reference</p>
-  <ul>
-    <li>
-      <p>when injecting a reference applied to a <i>component</i>, we get back the component instance </p>
-    </li>
-    <li>
-      <p>when injecting a reference to a <i>plain HTML element</i>, we get back the corresponding wrapped DOM element
-        (<i>ElementRef</i>)</p>
-    </li>
-  </ul>
-
-  <h5>Example of received object printed to the console:</h5>
-  <pre><code [highlight]= "viewChidCode2"></code></pre>
+  <p>
+    By using the <strong>nativeElement</strong> (see: <code>ngOnInit()</code>) property, we can apply any native
+    DOM operation to the div tag, for instance set the inner HTML value to the nativeElement (ElementRef) via Renderer2.
+  </p>
+  <pre><code [highlight]="viewChildCode5"></code></pre>
+  <h5>Using @ViewChild to inject Directives</h5>
+  <p>Let say we have third party directive 'Color Picker' which is accessible from AppComponent. From any other
+    component we can set up 'click event' (<code>(click)="openColorPicker())</code> which will be delegated to
+    AppComponent</p>
+  <pre><code [highlight]="viewChildCode6"></code></pre>
+  <p>Then in the AppComponent class, we are going to have the color picker directive injected via <code>@ViewChild</code></p>
+  <pre><code [highlight]="viewChildCode7"></code></pre>
+  <!-- <h5>Example of received object printed to the console:</h5>
+  <pre><code [highlight]= "viewChidCode2"></code></pre> -->
 </div>

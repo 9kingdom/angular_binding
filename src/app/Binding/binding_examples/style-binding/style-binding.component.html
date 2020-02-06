@@ -6,22 +6,12 @@
       </h1>
     </div>
     <div class="col">
-      <button
-        class="btn btn-info"
-        (click)="showHtml()"
-        style="float: right; margin-left: 2px;"
-        data-toggle="modal"
-        data-target="#classModal"
-      >
+      <button class="btn btn-info" (click)="showHtml()" style="float: right; margin-left: 2px;" data-toggle="modal"
+        data-target="#classModal">
         Show HTML
       </button>
-      <button
-        class="btn btn-info"
-        (click)="showClass()"
-        style="float: right;"
-        data-toggle="modal"
-        data-target="#classModal"
-      >
+      <button class="btn btn-info" (click)="showClass()" style="float: right;" data-toggle="modal"
+        data-target="#classModal">
         Show class
       </button>
     </div>
@@ -43,7 +33,7 @@
           <h4 [style.color]="'blue'">Example of css 'color' style binding.</h4>
         </td>
         <td>
-          <h5>[style.color]=" 'blue' "</h5>
+          <h5><code>[style.color]=" 'blue' "</code></h5>
         </td>
       </tr>
       <tr>
@@ -53,7 +43,7 @@
           </h4>
         </td>
         <td>
-          <h5>[style.color]="isSpecial ? 'green' : 'orange'"</h5>
+          <h5><code>[style.color]="isSpecial ? 'green' : 'orange'"</code></h5>
         </td>
       </tr>
       <tr>
@@ -63,7 +53,7 @@
           </h4>
         </td>
         <td>
-          <h5>[style.color]="highlightColor"</h5>
+          <h5><code>[style.color]="highlightColor"</code></h5>
         </td>
       </tr>
       <tr>
@@ -72,7 +62,7 @@
         </td>
         <td>
           <h5>
-            <strong>[ngStyle]="titleStyles"</strong>
+            <strong><code>[ngStyle]="titleStyles"</code></strong>
             <p style="margin-top:4px;">
               *ngStyle - use of more than one style at a time (see: 'titleStyles' declaration)
             </p>
@@ -84,4 +74,4 @@
   </table>
 </div>
 <br />
-  <app-modal></app-modal>
+<app-modal></app-modal>

@@ -6,22 +6,12 @@
       </h1>
     </div>
     <div class="col">
-      <button
-        class="btn btn-info"
-        (click)="showHtml()"
-        style="float: right; margin-left: 2px;"
-        data-toggle="modal"
-        data-target="#classModal"
-      >
+      <button class="btn btn-info" (click)="showHtml()" style="float: right; margin-left: 2px;" data-toggle="modal"
+        data-target="#classModal">
         Show HTML
       </button>
-      <button
-        class="btn btn-info"
-        (click)="showClass()"
-        style="float: right;"
-        data-toggle="modal"
-        data-target="#classModal"
-      >
+      <button class="btn btn-info" (click)="showClass()" style="float: right;" data-toggle="modal"
+        data-target="#classModal">
         Show class
       </button>
     </div>
@@ -43,7 +33,7 @@
           <h4 class="text-success">This is sample text - no databinding</h4>
         </td>
         <td>
-          <h5>class="text-success"</h5>
+          <h5><code>class="text-success"</code></h5>
         </td>
       </tr>
       <tr>
@@ -52,19 +42,19 @@
         </td>
         <td>
           <h5>
-            [class]="successClass" : 'successClass' value willbe passed to 'class'
-            => class="text-success"
+            <code>[class]="successClass"</code> => 'successClass' value willbe passed to 'class'
+            => <code>public successClass = 'text-success';</code>
           </h5>
         </td>
       </tr>
       <tr>
         <td scope="row">
           <h4 class="text-special" [class]="successClass">
-             'class binding' overwites class="text-special"
+            'class binding' overwites class="text-special"
           </h4>
         </td>
         <td>
-          <h5>class="text-special" <strong>[class]="successClass"</strong></h5>
+          <h5><code>class="text-special"</code><strong><code> [class]="successClass"</code></strong></h5>
         </td>
       </tr>
       <tr>
@@ -72,7 +62,7 @@
           <h4 [class.text-danger]="hasError">'class binding' dependent on condition</h4>
         </td>
         <td>
-          <h5>[class.text-danger]="hasError"</h5>
+          <h5><code>[class.text-danger]="hasError"</code></h5>
         </td>
       </tr>
       <tr>
@@ -81,11 +71,9 @@
         </td>
         <td>
           <h5>
-            [ngClass]="messageClass"
-            <strong>Note: [class]="messageClass" will not work!</strong><br />
-            <span
-              >Thanks to 'ngClass' multiple classes can be assigned via variable (e.g. 'messageClass')</span
-            >
+            <code>[ngClass]="messageClass"</code>
+            <p><strong>Note: <code>[class]="messageClass" will not work!</code></strong><br />
+              <span>Thanks to 'ngClass' multiple classes can be assigned via variable (e.g. 'messageClass')</span></p>
           </h5>
         </td>
       </tr>
@@ -94,4 +82,3 @@
 </div>
 <br />
 <app-modal></app-modal>
-

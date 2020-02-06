@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { InputOutputComponent } from '../input-output/input-output.component';
 
 @Component({
@@ -35,11 +35,15 @@ export class ParentComponent implements OnInit {
   varToSentBackValueToChild = '';
 
   @ViewChild(InputOutputComponent, { static: true }) inputOutputComp: InputOutputComponent;
+  // @ViewChild('myTestDiv', {static: true}) divElementRef: ElementRef;
+  // divElement: HTMLElement;
 
   constructor() { }
 
   ngOnInit(): void {
     console.log(this.inputOutputComp);
+    // this.divElement = this.divElementRef.nativeElement;
+    // this.divElement.classList.toggle('');
   }
 
   recivedItem(fromChild: string) {

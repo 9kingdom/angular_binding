@@ -29,35 +29,35 @@
   <table class="table table-striped container-fluid">
     <thead>
       <tr class="row">
-        <th class="col" scope="row">
+        <th class="col-3" scope="row">
           <h3><strong>Example</strong></h3>
         </th>
-        <th class="col" scope="row">
+        <th class="col-4" scope="row">
           <h3><strong>Message</strong></h3>
         </th>
-        <th class="col" scope="row">
+        <th class="col-5" scope="row">
           <h3><strong>Syntax</strong></h3>
         </th>
       </tr>
     </thead>
     <tbody>
       <tr class="row">
-        <td class="col" scope="row">
+        <td class="col-3" scope="row">
           <button type="button" class="btn btn-outline-secondary" (click)="runMethod()">
             Click me
           </button>
         </td>
-        <td class="col" scope="row">
+        <td class="col-4" scope="row">
           <div [hidden]="dispMessage" style="text-align:left">
             <h5><strong>Show me with a click</strong></h5>
           </div>
         </td>
-        <td class="col" scope="row">
-          <h5>(click) = "runMethod()" => <br />[hidden] = "dispMessage"</h5>
+        <td class="col-5" scope="row">
+          <h5><code>(click) = "runMethod()"</code> => <br /><code>[hidden] = "dispMessage"</code></h5>
         </td>
       </tr>
       <tr class="row">
-        <td class="col align-middle" scope="row">
+        <td class="col-3 align-middle" scope="row">
           <div class="input-group">
             <div class="input-group-prepend">
               <button
@@ -82,18 +82,18 @@
             />
           </div>
         </td>
-        <td class="col" scope="row">
+        <td class="col-4" scope="row">
           <h5>Input field value => {{ inputValue }}</h5>
           <h5>event type => {{ eventType }}</h5>
         </td>
-        <td class="col" scope="row">
+        <td class="col-5" scope="row">
           <h5>
-            (click)="passValue($event, inputField)"
+            <code>(click)="passValue($event, inputField)"</code>
           </h5>
         </td>
       </tr>
       <tr class="row">
-        <td class="col" scope="row">
+        <td class="col-3" scope="row">
           <button
             class="btn btn-outline-secondary"
             type="button"
@@ -105,11 +105,11 @@
             Click me
           </button>
         </td>
-        <td class="col" scope="row">
+        <td class="col-4" scope="row">
           <h5>templateStatement => {{ templateStatement }}</h5>
         </td>
-        <td class="col" scope="row">
-          <h5>(click) = &quot;templateStatement='Halo Halo'&quot;</h5>
+        <td class="col-5" scope="row">
+          <h5><code>(click) = &quot;templateStatement='Halo Halo'&quot;</code></h5>
         </td>
       </tr>
     </tbody>
