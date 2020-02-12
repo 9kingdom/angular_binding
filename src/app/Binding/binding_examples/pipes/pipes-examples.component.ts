@@ -9,11 +9,11 @@ import { Component, OnInit } from '@angular/core';
 
     <div style="text-align:center">
       <h2><font color='blue'>String pipes</font></h2>
-      <h2>{{ name | lowercase }} - zmiana na małą literę</h2>
-      <h2>{{ message | titlecase }} - zmiana na 'camel case'</h2>
-      <h2>{{ name | slice:2 }} - slice od indexu=2</h2>
-      <h2>{{ name | slice:2:4 }} - slice od indexu=2 (included) do indexu=4 (not included)</h2>
-      <h2>{{ name | slice:2 | uppercase }} - slice od indexu=2 + upper case</h2>
+      <!-- <h2>{{ name | lowercase }} - zmiana na małą literę</h2>
+      <h2>{{ message | titlecase }} - zmiana na 'camel case'</h2> -->
+      <!-- <h2>{{ name | slice:2 }} - slice od indexu=2</h2> -->
+      <!-- <h2>{{ name | slice:2:4 }} - slice od indexu=2 (included) do indexu=4 (not included)</h2> -->
+      <!-- <h2>{{ name | slice:2 | uppercase }} - slice od indexu=2 + upper case</h2> -->
       <h2>{{ personObject | json }} - json pipe czyli widok w formacie json</h2>
       <h2><font color='blue'>Numbers pipes</font></h2>
       <h2>{{ 5.678 | number: '3.4-5' }}</h2>

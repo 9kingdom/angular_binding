@@ -1,0 +1,153 @@
+<div class="container-fluid" style="text-align:left">
+  <div class="row">
+    <div class="col-">
+      <h1>
+        <font color="red"
+          ><strong>{{ bindingType }}</strong></font
+        >
+      </h1>
+    </div>
+    <div class="col">
+      <button
+        class="btn btn-info"
+        (click)="showHtml()"
+        style="float: right; margin-left: 2px;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show HTML
+      </button>
+      <button
+        class="btn btn-info"
+        (click)="showClass()"
+        style="float: right;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show class
+      </button>
+    </div>
+  </div>
+  <table class="table table-striped container-fluid">
+    <thead>
+      <tr class="row">
+        <th class="col-2" scope="row">
+          <h3><strong>Pipe name</strong></h3>
+        </th>
+        <th class="col-4" scope="row">
+          <h3><strong>Variable</strong></h3>
+        </th>
+        <th class="col-3" scope="row">
+          <h3><strong>Result</strong></h3>
+        </th>
+        <th class="col-3" scope="row">
+          <h3><strong>Syntax</strong></h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row">
+        <td class="col-2" scope="row">
+          <h5>Lowercase</h5>
+        </td>
+        <td class="col-4" scope="row">
+          <h5><code>name = 'Robert';</code></h5>
+        </td>
+        <td class="col-3" scope=" row">
+          <p>{{ name | lowercase }}</p>
+        </td>
+        <td class="col-3" scope=" row">
+          <h5>
+            <code>{{ '{{' }} name | lowercase {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-2" scope="row">
+          <h5>Camelcase</h5>
+        </td>
+        <td class="col-4" scope="row">
+          <h5><code>message = 'This is camel case';</code></h5>
+        </td>
+        <td class="col-3" scope=" row">
+          <p>{{ message | titlecase }}</p>
+        </td>
+        <td class="col-3" scope=" row">
+          <h5>
+            <code>{{ '{{' }} message | titlecase {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-2" scope="row">
+          <h5>Slice</h5>
+          <p>from idx=2</p>
+        </td>
+        <td class="col-4" scope="row">
+          <h5><code>name = 'Robert';</code></h5>
+        </td>
+        <td class="col-3" scope=" row">
+          <p>{{ name | slice: 2 }}</p>
+        </td>
+        <td class="col-3" scope=" row">
+          <h5>
+            <code>{{ '{{' }} name | slice:2 {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-2" scope="row">
+          <h5>Slice</h5>
+          <p>from idx=2 to idx=4</p>
+        </td>
+        <td class="col-4" scope="row">
+          <h5><code>name = 'Robert';</code></h5>
+        </td>
+        <td class="col-3" scope=" row">
+          <p>{{ name | slice: 2:4 }}</p>
+        </td>
+        <td class="col-3" scope=" row">
+          <h5>
+            <code>{{ '{{' }} name | slice:2:4 {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-2" scope="row">
+          <h5>Slice</h5>
+          <p>+</p>
+          <h5>Uppercase</h5>
+        </td>
+        <td class="col-4" scope="row">
+          <h5><code>name = 'Robert';</code></h5>
+        </td>
+        <td class="col-3" scope=" row">
+          <p>{{ name | slice: 2 | uppercase }}</p>
+        </td>
+        <td class="col-3" scope=" row">
+          <h5>
+            <code>{{ '{{' }} name | slice:2 | uppercase {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-2" scope="row">
+          <h5>Json</h5>
+        </td>
+        <td class="col-4" scope="row">
+            <pre><code [highlight]="personObjectCode"></code></pre>
+        </td>
+        <td class="col-3" scope="row">
+            <pre><code [highlight]="personObjectCode2"></code></pre>
+        </td>
+        <td class="col-3" scope=" row">
+          <h5>
+            <code>{{ '{{' }} personObj | json {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
+<app-modal></app-modal>

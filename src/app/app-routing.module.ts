@@ -10,8 +10,6 @@ import { StyleBindingComponent } from './Binding/binding_examples/style-binding/
 import { TwowayBindingComponent } from './Binding/binding_examples/twoway-binding/twoway-binding.component';
 import { EventBindingComponent } from './Binding/binding_examples/event-binding/event-binding.component';
 import { DirectivesComponent } from './Directives/directive_home/directives.component';
-import { PipesComponent } from './pipes/pipes.component';
-import { PipesExampleComponent } from './Binding/binding_examples/pipes/pipes-examples.component';
 import { ObservablesComponent } from './observables/observables.component';
 import { RoutingComponent } from './routing/routing.component';
 import { ParentComponent } from './Binding/binding_examples/parent-component/parent-component.component';
@@ -26,6 +24,10 @@ import { NgModelComponent } from './Directives/Atribute_directives/Atribute_dire
 import { NgClassComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-class/ng-class.component';
 import { NgStyleComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-style/ng-style.component';
 import { ViewchildComponent } from './Binding/binding_examples/viewchild/viewchild.component';
+import { PipesHomeComponent } from './Pipes/pipes-home/pipes-home.component';
+import { StringPipesComponent } from './Pipes/string-pipes/string-pipes.component';
+import { NumberPipesComponent } from './Pipes/number-pipes/number-pipes.component';
+import { DatePipesComponent } from './Pipes/date-pipes/date-pipes.component';
 
 const appRoutes: Routes = [
   {
@@ -89,15 +91,17 @@ const appRoutes: Routes = [
       },
       {
         path: 'pipes',
-        component: PipesComponent,
+        component: PipesHomeComponent,
         children: [
           {
             // thanks to this it will load automatically the 'pipesexample' component
             path: '',
-            redirectTo: 'pipesexample',
+            redirectTo: 'stringpipes',
             pathMatch: 'full'
           },
-          { path: 'pipesexample', component: PipesExampleComponent }
+          { path: 'stringpipes', component: StringPipesComponent },
+          { path: 'numberpipes', component: NumberPipesComponent },
+          { path: 'datepipes', component: DatePipesComponent }
         ]
       },
       {

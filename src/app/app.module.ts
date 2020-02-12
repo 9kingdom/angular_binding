@@ -20,7 +20,6 @@ import { BindingComponent } from './Binding/binding_home/binding.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DirectivesComponent } from './Directives/directive_home/directives.component';
-import { PipesComponent } from './pipes/pipes.component';
 import { ObservablesComponent } from './observables/observables.component';
 import { RoutingComponent } from './routing/routing.component';
 import { CustomDirectiveComponent } from './Binding/binding_examples/custom-directive/custom-directive.component';
@@ -37,6 +36,10 @@ import { NgModelComponent } from './Directives/Atribute_directives/Atribute_dire
 import { NgClassComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-class/ng-class.component';
 import { NgStyleComponent } from './Directives/Atribute_directives/Atribute_directives_examples/ng-style/ng-style.component';
 import { ViewchildComponent } from './Binding/binding_examples/viewchild/viewchild.component';
+import { PipesHomeComponent } from './Pipes/pipes-home/pipes-home.component';
+import { StringPipesComponent } from './Pipes/string-pipes/string-pipes.component';
+import { NumberPipesComponent } from './Pipes/number-pipes/number-pipes.component';
+import { DatePipesComponent } from './Pipes/date-pipes/date-pipes.component';
 
 export function getHighlightLanguages() {
   return {
@@ -59,7 +62,6 @@ export function getHighlightLanguages() {
     NgSwitchComponent,
     NgForComponent,
     InputOutputComponent,
-    PipesComponent,
     PipesExampleComponent,
     NavbarComponent,
     JumbotronComponent,
@@ -79,7 +81,11 @@ export function getHighlightLanguages() {
     NgModelComponent,
     NgClassComponent,
     NgStyleComponent,
-    ViewchildComponent
+    ViewchildComponent,
+    PipesHomeComponent,
+    StringPipesComponent,
+    NumberPipesComponent,
+    DatePipesComponent
   ],
   imports: [
     HttpClientModule,

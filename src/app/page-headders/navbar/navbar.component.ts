@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
         this.title = 'Directives';
         break;
       }
-      case 'PipesComponent': {
+      case 'PipesHomeComponent': {
         this.title = 'Pipes';
         break;
       }
