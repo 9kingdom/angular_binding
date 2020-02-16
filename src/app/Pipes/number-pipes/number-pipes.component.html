@@ -1,1 +1,162 @@
-<p>number-pipes works!</p>
+<div class="container-fluid" style="text-align:left">
+  <div class="row">
+    <div class="col-">
+      <h1>
+        <font color="red"
+          ><strong>{{ bindingType }}</strong></font
+        >
+      </h1>
+    </div>
+    <div class="col">
+      <button
+        class="btn btn-info"
+        (click)="showHtml()"
+        style="float: right; margin-left: 2px;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show HTML
+      </button>
+      <button
+        class="btn btn-info"
+        (click)="showClass()"
+        style="float: right;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show class
+      </button>
+    </div>
+  </div>
+  <table class="table table-striped container-fluid">
+    <thead>
+      <tr class="row">
+        <th class="col-3" scope="row">
+          <h3><strong>Pipe name</strong></h3>
+        </th>
+        <th class="col-3" scope="row">
+          <h3><strong>Result</strong></h3>
+        </th>
+        <th class="col-6" scope="row">
+          <h3><strong>Syntax</strong></h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Percent</h5>
+        </td>
+        <td class="col-3" scope=" row">
+          <p>{{ 0.25 | percent }}</p>
+        </td>
+        <td class="col-6" scope=" row">
+          <h5>
+            <code>{{ '{{' }} 0.25 | percent {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Currency</h5>
+          <p>default currency</p>
+        </td>
+        <td class="col-3" scope=" row">
+          <p>{{ 0.25 | currency }}</p>
+        </td>
+        <td class="col-6" scope=" row">
+          <h5>
+            <code>{{ '{{' }} 0.25 | currency {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Currency</h5>
+          <p>use currency symbol</p>
+        </td>
+        <td class="col-3" scope=" row">
+          <p>{{ 0.25 | currency: 'GBP' }}</p>
+        </td>
+        <td class="col-6" scope=" row">
+          <h5>
+            <code>{{ '{{' }} 0.25 | currency: 'GBP' {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Currency</h5>
+          <p>use 3-letter code</p>
+        </td>
+        <td class="col-3" scope=" row">
+          <p>{{ 0.25 | currency: 'EUR':'code' }}</p>
+        </td>
+        <td class="col-6" scope=" row">
+          <h5>
+            <code>{{ '{{' }} 0.25 | currency: 'EUR': 'code' {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Set accuracy</h5>
+        </td>
+        <td class="col-3" scope=" row">
+          <p>{{ 5.678 | number: '3.4-5' }}</p>
+        </td>
+        <td class="col-6" scope=" row">
+          <h5>
+            <code>{{ '{{' }} 5.678 | number: '3.4-5' {{ '}' }}{{ '}' }}</code>
+          </h5>
+          <p>
+            <i
+              ><code><font size="4">'3'</font></code> => min number of digits before decimal mark</i
+            >
+          </p>
+          <p>
+            <i
+              ><code><font size="4">'4'</font></code> => min number of digits after decimal mark</i
+            >
+          </p>
+          <p>
+            <i
+              ><code><font size="4">'5'</font></code> => max number of digits after decimal mark</i
+            >
+          </p>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Round number</h5>
+        </td>
+        <td class="col-3" scope=" row">
+          <p>{{ num | number: '3.1-2' }}</p>
+        </td>
+        <td class="col-6" scope=" row">
+          <h5>
+            <code>{{ '{{' }} 5.678 | number: '3.1-2' {{ '}' }}{{ '}' }}</code>
+          </h5>
+          <p>
+            <i
+              ><code><font size="4">'3'</font></code> => min number of digits before decimal mark</i
+            >
+          </p>
+          <p>
+            <i
+              ><code><font size="4">'1'</font></code> => min number of digits after decimal mark</i
+            >
+          </p>
+          <p>
+            <i
+              ><code><font size="4">'2'</font></code> => <strong>round</strong> if max number of
+              digits after decimal mark > 2</i
+            >
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
+<app-modal></app-modal>

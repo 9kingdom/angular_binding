@@ -9,7 +9,7 @@ import { CommonService } from 'src/app/common.service';
 })
 export class StringPipesComponent implements OnInit {
 
-  bindingType = 'Pipes';
+  bindingType = 'String Pipes';
   public name = 'Robert';
   public message = 'This is camel case example';
   public personObj = {
@@ -26,9 +26,9 @@ export class StringPipesComponent implements OnInit {
   };`;
 
   personObjectCode2 = `  {
-    firstName: 'Sara',
-    lastName: 'Krupicka'
-  };`;
+   firstName: 'Sara',
+   lastName: 'Krupicka'
+  }`;
 
   code = ``;
 

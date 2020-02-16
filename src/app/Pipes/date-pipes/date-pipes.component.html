@@ -1,1 +1,148 @@
-<p>date-pipes works!</p>
+<div class="container-fluid" style="text-align:left">
+  <div class="row">
+    <div class="col-">
+      <h1>
+        <font color="red"
+          ><strong>{{ bindingType }}</strong></font
+        >
+      </h1>
+    </div>
+    <div class="col">
+      <button
+        class="btn btn-info"
+        (click)="showHtml()"
+        style="float: right; margin-left: 2px;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show HTML
+      </button>
+      <button
+        class="btn btn-info"
+        (click)="showClass()"
+        style="float: right;"
+        data-toggle="modal"
+        data-target="#classModal"
+      >
+        Show class
+      </button>
+    </div>
+  </div>
+  <table class="table table-striped container-fluid">
+    <thead>
+      <tr class="row">
+        <th class="col-3" scope="row">
+          <h3><strong>Pipe name</strong></h3>
+        </th>
+        <th class="col-4" scope="row">
+          <h3><strong>Result</strong></h3>
+        </th>
+        <th class="col-5" scope="row">
+          <h3><strong>Syntax</strong></h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Date</h5>
+          <p>full</p>
+        </td>
+        <td class="col-4" scope=" row">
+          <p>{{ date }}</p>
+        </td>
+        <td class="col-5" scope=" row">
+          <h5>
+            <code>{{ '{{' }} date {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Date</h5>
+          <p>short</p>
+        </td>
+        <td class="col-4" scope=" row">
+          <p>{{ date | date: 'short' }}</p>
+        </td>
+        <td class="col-5" scope=" row">
+          <h5>
+            <code>{{ '{{' }} date | date: 'short' {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Date</h5>
+          <p>medium</p>
+        </td>
+        <td class="col-4" scope=" row">
+          <p>{{ date | date: 'medium' }}</p>
+        </td>
+        <td class="col-5" scope=" row">
+          <h5>
+            <code>{{ '{{' }} date | date: 'medium' {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Date</h5>
+          <p>long</p>
+        </td>
+        <td class="col-4" scope=" row">
+          <p>{{ date | date: 'long' }}</p>
+        </td>
+        <td class="col-5" scope=" row">
+          <h5>
+            <code>{{ '{{' }} date | date: 'long' {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Date</h5>
+          <p>short format, 'date' only</p>
+        </td>
+        <td class="col-4" scope=" row">
+          <p>{{ date | date: 'shortDate' }}</p>
+        </td>
+        <td class="col-5" scope=" row">
+          <h5>
+            <code>{{ '{{' }} date | date: 'shortDate' {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Date</h5>
+          <p>medium format, 'time' only</p>
+        </td>
+        <td class="col-4" scope=" row">
+          <p>{{ date | date: 'mediumTime' }}</p>
+        </td>
+        <td class="col-5" scope=" row">
+          <h5>
+            <code>{{ '{{' }} date | date: 'mediumTime' {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-3" scope="row">
+          <h5>Date</h5>
+          <p>custom time</p>
+        </td>
+        <td class="col-4" scope=" row">
+          <p>{{ date | date: 'HH:mm:ss a z' }}</p>
+        </td>
+        <td class="col-5" scope=" row">
+          <h5>
+            <code>{{ '{{' }} date | date: 'HH:mm:ss a z' {{ '}' }}{{ '}' }}</code>
+          </h5>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
+<app-modal></app-modal>

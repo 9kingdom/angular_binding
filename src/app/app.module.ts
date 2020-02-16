@@ -12,7 +12,6 @@ import { StyleBindingComponent } from './Binding/binding_examples/style-binding/
 import { EventBindingComponent } from './Binding/binding_examples/event-binding/event-binding.component';
 import { TwowayBindingComponent } from './Binding/binding_examples/twoway-binding/twoway-binding.component';
 import { InputOutputComponent } from './Binding/binding_examples/input-output/input-output.component';
-import { PipesExampleComponent } from './Binding/binding_examples/pipes/pipes-examples.component';
 import { NavbarComponent } from './page-headders/navbar/navbar.component';
 import { JumbotronComponent } from './page-headders/jumbotron/jumbotron.component';
 import { FooterComponent } from './page-headders/footer/footer.component';
@@ -43,13 +42,13 @@ import { DatePipesComponent } from './Pipes/date-pipes/date-pipes.component';
 
 export function getHighlightLanguages() {
   return {
-    typescript: () => import('node_modules/highlight.js/lib/languages/typescript'),
-    css: () => import('node_modules/highlight.js/lib/languages/css'),
-    xml: () => import('node_modules/highlight.js/lib/languages/xml')
+    typescript: () => import( 'node_modules/highlight.js/lib/languages/typescript' ),
+    css: () => import( 'node_modules/highlight.js/lib/languages/css' ),
+    xml: () => import( 'node_modules/highlight.js/lib/languages/xml' )
   };
 }
 
-@NgModule({
+@NgModule( {
   declarations: [
     AppComponent,
     InterpolationComponent,
@@ -62,7 +61,6 @@ export function getHighlightLanguages() {
     NgSwitchComponent,
     NgForComponent,
     InputOutputComponent,
-    PipesExampleComponent,
     NavbarComponent,
     JumbotronComponent,
     FooterComponent,
@@ -104,6 +102,6 @@ export function getHighlightLanguages() {
       }
     }
   ],
-  bootstrap: [AppComponent]
-})
-export class AppModule {}
+  bootstrap: [ AppComponent ]
+} )
+export class AppModule { }
