@@ -9,44 +9,40 @@
             class="nav-link"
             data-toggle="pill"
             role="tab"
-            routerLink="stringpipes"
+            routerLink="customobservable"
             routerLinkActive="active"
           >
             <h5 (click)="setName('main')">
-              String pipes
+              Custom Observables
             </h5>
           </a>
+          <nav class="nav nav-pills flex-column">
+            <a
+              class="nav-link ml-3 my-1"
+              (click)="setName('ngmodel')"
+              routerLink="customobservable/nonrxjsobservable"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >non RxJS</a
+            >
+            <a
+              class="nav-link ml-3 my-1"
+              (click)="setName('ngclass')"
+              routerLink="customobservable/rxjsobservable"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >RxJS</a
+            >
+          </nav>
           <a
             class="nav-link"
             data-toggle="pill"
             role="tab"
-            routerLink="numberpipes"
+            routerLink="subject"
             routerLinkActive="active"
           >
             <h5 (click)="setName('main')">
-              Number pipes
-            </h5>
-          </a>
-          <a
-            class="nav-link"
-            data-toggle="pill"
-            role="tab"
-            routerLink="datepipes"
-            routerLinkActive="active"
-          >
-            <h5 (click)="setName('main')">
-              Date pipes
-            </h5>
-          </a>
-          <a
-            class="nav-link"
-            data-toggle="pill"
-            role="tab"
-            routerLink="custompipes"
-            routerLinkActive="active"
-          >
-            <h5 (click)="setName('main')">
-              Custom pipes
+              Subject
             </h5>
           </a>
         </nav>

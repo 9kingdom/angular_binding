@@ -10,7 +10,7 @@ import { StyleBindingComponent } from './Binding/binding_examples/style-binding/
 import { TwowayBindingComponent } from './Binding/binding_examples/twoway-binding/twoway-binding.component';
 import { EventBindingComponent } from './Binding/binding_examples/event-binding/event-binding.component';
 import { DirectivesComponent } from './Directives/directive_home/directives.component';
-import { ObservablesComponent } from './observables/observables.component';
+import { ObservablesComponent } from './Observables/observables_home/observables.component';
 import { RoutingComponent } from './routing/routing.component';
 import { ParentComponent } from './Binding/binding_examples/parent-component/parent-component.component';
 import { AtributeDirectivesComponent } from './Directives/Atribute_directives/atribute-directives/atribute-directives.component';
@@ -28,6 +28,11 @@ import { PipesHomeComponent } from './Pipes/pipes-home/pipes-home.component';
 import { StringPipesComponent } from './Pipes/string-pipes/string-pipes.component';
 import { NumberPipesComponent } from './Pipes/number-pipes/number-pipes.component';
 import { DatePipesComponent } from './Pipes/date-pipes/date-pipes.component';
+import { CustomPipesComponent } from './Pipes/custom-pipes/custom-pipes.component';
+import { CustomObservableComponent } from './Observables/custom-observable/custom-observable.component';
+import { RxjsObservableComponent } from './Observables/rxjs-observable/rxjs-observable.component';
+import { SubjectComponent } from './Observables/subject/subject.component';
+import { NonRxjsComponent } from './Observables/non-rxjs/non-rxjs.component';
 
 const appRoutes: Routes = [
   {
@@ -101,12 +106,32 @@ const appRoutes: Routes = [
           },
           { path: 'stringpipes', component: StringPipesComponent },
           { path: 'numberpipes', component: NumberPipesComponent },
-          { path: 'datepipes', component: DatePipesComponent }
+          { path: 'datepipes', component: DatePipesComponent },
+          { path: 'custompipes', component: CustomPipesComponent }
         ]
       },
       {
         path: 'observables',
-        component: ObservablesComponent
+        component: ObservablesComponent,
+        children: [
+          {
+            // thanks to this it will load automatically the 'pipesexample' component
+            path: '',
+            redirectTo: 'customobservable',
+            pathMatch: 'full'
+          },
+          {
+            path: 'customobservable',
+            component: CustomObservableComponent,
+            children: [
+              { path: 'nonrxjsobservable', component: NonRxjsComponent },
+              { path: 'rxjsobservable', component: RxjsObservableComponent }
+            ]
+          },
+          {
+            path: 'subject', component: SubjectComponent
+          }
+        ]
       },
       {
         path: 'routing',
@@ -121,8 +146,8 @@ const appRoutes: Routes = [
   { path: '**', redirectTo: '/' }
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
-})
+@NgModule( {
+  imports: [ RouterModule.forRoot( appRoutes ) ],
+  exports: [ RouterModule ]
+} )
 export class AppRoutingModule { }

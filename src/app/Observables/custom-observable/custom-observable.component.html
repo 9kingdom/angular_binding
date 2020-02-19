@@ -1,0 +1,25 @@
+<div
+  *ngIf="componentName === 'main'"
+  class="container-fluid"
+  style="text-align:left"
+  data-spy="scroll"
+  data-target="#navbar11"
+  data-offset="0"
+>
+  <div class="row">
+    <div class="col">
+      <h1 [style.color]="'red'">
+        <strong>{{ bindingType }}</strong>
+      </h1>
+    </div>
+  </div>
+  <br />
+  <div class="alert alert-secondary" role="alert">
+    <p>
+      Wstaw tutaj opis Observable!
+    </p>
+  </div>
+</div>
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

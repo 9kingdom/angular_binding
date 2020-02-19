@@ -1,0 +1,32 @@
+<div class="container">
+  <h5>1. Create filer class with the following decorator:</h5>
+  <div class="container-fluid">
+    <pre><code [highlight]="pipeDecorator"></code></pre>
+    <div class="alert alert-info" role="alert">
+      Class must implement <code>PipeTransform</code> interface and provide
+      <code>transform()</code> method whith pipe logic.
+    </div>
+  </div>
+  <h5>2. Class:</h5>
+  <div class="container-fluid">
+    <pre><code [highlight]="filterPipe"></code></pre>
+  </div>
+  <h5>3. Usage:</h5>
+  <div class="container-fluid">
+    <div class="alert alert-info" role="alert">
+      Keep in mind that pipe has priority i.e. filtering will be applied before ngFor.
+    </div>
+    <div class="alert alert-info" role="alert">
+      <ul>
+        <li><code>filter</code> => pipe name,</li>
+        <li><code>filterString</code> => value used as a filter</li>
+        <li>
+          <code>propName</code> => object field name which <strong>value</strong> will be compared
+          to
+          <code>filterString</code>
+        </li>
+      </ul>
+    </div>
+    <pre><code [highlight]="usage"></code></pre>
+  </div>
+</div>
