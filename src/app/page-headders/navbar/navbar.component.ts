@@ -2,23 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonService } from 'src/app/common.service';
 
-@Component({
+@Component( {
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
-})
+  styleUrls: [ './navbar.component.css' ]
+} )
 export class NavbarComponent implements OnInit {
   hideAdditionalNav = false;
   title = '';
 
-  constructor(private route: ActivatedRoute, private commonService: CommonService) {}
+  constructor( private route: ActivatedRoute, private commonService: CommonService ) { }
 
   ngOnInit() {
-    if (this.route.routeConfig.component.name === 'HomeComponent') {
+    if ( this.route.routeConfig.component.name === 'HomeComponent' ) {
       this.hideAdditionalNav = true;
     }
 
-    switch (this.route.routeConfig.component.name) {
+    switch ( this.route.routeConfig.component.name ) {
       case 'BindingComponent': {
         this.title = 'Binding';
         break;
@@ -35,6 +35,10 @@ export class NavbarComponent implements OnInit {
         this.title = 'Observables';
         break;
       }
+      case 'InterceptorsHomeComponent': {
+        this.title = 'Interceptors';
+        break;
+      }
       case 'RoutingComponent': {
         this.title = 'Routing';
         break;
@@ -46,9 +50,9 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  setName(name: string) {
-    this.commonService.name.next(name);
-    this.commonService.setInitName(name);
+  setName( name: string ) {
+    this.commonService.name.next( name );
+    this.commonService.setInitName( name );
   }
 
 }

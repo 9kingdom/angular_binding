@@ -52,19 +52,104 @@
             title='[(ngModel)] = "name"'
           />
           <p>
-            Start typing => Value from input field will be copied to variable &quot;name&quot; and
+            Start typing => Value from input field will be copied to variable <code>name</code> and
             another DOM element will be automatically updated with that value
           </p>
         </td>
         <td class="col" scope="row">
-          <h5><code>{{ '{{' }} name {{ '}' }}{{ '}' }}</code></h5>
+          <h5>
+            <code>{{ '{{' }} name {{ '}' }}{{ '}' }}</code>
+          </h5>
           <h5>{{ name }}</h5>
         </td>
         <td class="col" scope="row">
           <h5><code>[(ngModel)] = "name"</code></h5>
         </td>
       </tr>
+      <tr class="row">
+        <h4>
+          <br />
+          <p><strong>Two way binding between parent and child component</strong></p>
+        </h4>
+        <div class="alert alert-info">
+          <div><strong>Problem:</strong></div>
+          <div>
+            Parent component holds <code>amount</code> variable which value can be increased or
+            decreased. Addition is done in parent compnent while substraction in child component.
+            Variable <code>amount</code> should holds common value for both components.
+          </div>
+        </div>
+        <div>
+          <div>Steps:</div>
+          <ul>
+            <li>
+              add property binding to child component
+              <div>
+                Parent:
+                <pre><code [highlight]="html2"></code></pre>
+                Child:
+                <pre><code [highlight] = "html3"></code></pre>
+              </div>
+            </li>
+            <li>
+              add <code>Input()</code> in Child class
+              <div>
+                <pre><code [highlight]="code2"></code></pre>
+              </div>
+            </li>
+            <div>
+              So far we are able to increase and decrease <code>amount</code> value but parent
+              component does not know about any changes done in child component. In order to update
+              <code>amount</code> in parent component we need to use <code>EventEmitter</code>
+            </div>
+            <li>
+              add <code>Output()</code> and <code>EventEmitter</code> in child .ts. Final child
+              class:
+              <pre><code [highlight]="html4"></code></pre>
+            </li>
+            <li>
+              modify parent html by adding event binding to <code>amountChange</code> :
+              <pre><code [highlight] = "html5"></code></pre>
+              <div>
+                Now, <code>amount</code> is common for both parent and child component but it is
+                better tu use 'banana in the box syntax'. See below:
+              </div>
+            </li>
+            <li>
+              <strong>Banana in the box</strong>
+              <div>By modyfing above syntax we can use <strong>two-way binding:</strong></div>
+              <pre><code [highlight] = "html6"></code></pre>
+            </li>
+            <div class="alert alert-warning">
+              The magic here is the suffix <strong>‘Change’</strong> in the event’s name
+              <code><strong>amountChange</strong></code
+              >. If the property binding name is <strong>‘x’</strong>, the event binding name should
+              be exactly <strong>‘xChange’</strong>. Only then Angular recognizes banana-in-a-box
+              [()] syntax.
+            </div>
+          </ul>
+        </div>
+      </tr>
+      <h4><strong>Result:</strong></h4>
+      <tr class="row">
+        <td class="col" scope="row">
+          <button
+            class="btn btn-outline-secondary"
+            style="margin-right: 2px;"
+            type="button"
+            (click)="addBalance()"
+            data-placement="top"
+            title='[(ngModel)] = "name"'
+          >
+            (parent) add +10
+          </button>
+          <app-twoway-child [(amount)]="amount"></app-twoway-child>
+        </td>
+        <td class="col" scope="row">
+          <h5>Amount: {{ amount }}</h5>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
-  <app-modal></app-modal>
+<app-modal></app-modal>

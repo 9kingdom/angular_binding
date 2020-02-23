@@ -33,6 +33,8 @@ import { CustomObservableComponent } from './Observables/custom-observable/custo
 import { RxjsObservableComponent } from './Observables/rxjs-observable/rxjs-observable.component';
 import { SubjectComponent } from './Observables/subject/subject.component';
 import { NonRxjsComponent } from './Observables/non-rxjs/non-rxjs.component';
+import { PromiseComponent } from './Observables/promise/promise.component';
+import { InterceptorsHomeComponent } from './Interceptors/interceptors-home/interceptors-home.component';
 
 const appRoutes: Routes = [
   {
@@ -129,8 +131,17 @@ const appRoutes: Routes = [
             ]
           },
           {
+            path: 'promise', component: PromiseComponent
+          },
+          {
             path: 'subject', component: SubjectComponent
           }
+        ]
+      },
+      {
+        path: 'interceptors',
+        component: InterceptorsHomeComponent,
+        children: [
         ]
       },
       {

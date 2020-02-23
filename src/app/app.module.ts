@@ -44,6 +44,9 @@ import { CustomObservableComponent } from './Observables/custom-observable/custo
 import { RxjsObservableComponent } from './Observables/rxjs-observable/rxjs-observable.component';
 import { SubjectComponent } from './Observables/subject/subject.component';
 import { NonRxjsComponent } from './Observables/non-rxjs/non-rxjs.component';
+import { PromiseComponent } from './Observables/promise/promise.component';
+import { TwowayChildComponent } from './Binding/binding_examples/twoway-binding/twoway-child/twoway-child.component';
+import { InterceptorsHomeComponent } from './Interceptors/interceptors-home/interceptors-home.component';
 
 export function getHighlightLanguages() {
   return {
@@ -93,7 +96,10 @@ export function getHighlightLanguages() {
     CustomObservableComponent,
     RxjsObservableComponent,
     SubjectComponent,
-    NonRxjsComponent
+    NonRxjsComponent,
+    PromiseComponent,
+    TwowayChildComponent,
+    InterceptorsHomeComponent
   ],
   imports: [
     HttpClientModule,
