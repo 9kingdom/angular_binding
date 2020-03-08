@@ -23,7 +23,7 @@ export class NgForComponent implements OnInit {
     { mark: 'C', name: 'BatGirl', superpower: 'jump' },
     { mark: 'D', name: 'Robin', superpower: 'sing' },
   ];
-  
+
   HTML:
   <tr *ngFor="let hero of heroes; let i = index">
   <td>{{hero.name}}</td>
@@ -54,7 +54,13 @@ export class NgForComponent implements OnInit {
  .last {
   font-style: italic;
   font-weight: bold;
- }`
+ }`;
+
+  ngForCode4 = `trackById(listItems: any): string {
+    return listItems.id;
+  }`;
+
+  ngForHtml = `<tr *ngFor="let item of listItems; trackBy: trackById">`;
 
   constructor() { }
 

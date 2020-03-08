@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <hr />
   <div class="row">
-    <div class="col-3">
+    <div class="col-2">
       <nav class="navbar navbar-light flex-column make-me-sticky">
         <nav class="nav nav-pills flex-column" role="tablist">
           <a
@@ -12,9 +12,9 @@
             routerLink="stringpipes"
             routerLinkActive="active"
           >
-            <h5 (click)="setName('main')">
+            <h6 (click)="setName('main')">
               String pipes
-            </h5>
+            </h6>
           </a>
           <a
             class="nav-link"
@@ -23,9 +23,9 @@
             routerLink="numberpipes"
             routerLinkActive="active"
           >
-            <h5 (click)="setName('main')">
+            <h6 (click)="setName('main')">
               Number pipes
-            </h5>
+            </h6>
           </a>
           <a
             class="nav-link"
@@ -34,9 +34,9 @@
             routerLink="datepipes"
             routerLinkActive="active"
           >
-            <h5 (click)="setName('main')">
+            <h6 (click)="setName('main')">
               Date pipes
-            </h5>
+            </h6>
           </a>
           <a
             class="nav-link"
@@ -45,14 +45,25 @@
             routerLink="custompipes"
             routerLinkActive="active"
           >
-            <h5 (click)="setName('main')">
+            <h6 (click)="setName('main')">
               Custom pipes
-            </h5>
+            </h6>
+          </a>
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="commonpipes"
+            routerLinkActive="active"
+          >
+            <h6 (click)="setName('main')">
+              Common pipes
+            </h6>
           </a>
         </nav>
       </nav>
     </div>
-    <div class="col-9">
+    <div class="col-10">
       <router-outlet></router-outlet>
     </div>
   </div>

@@ -47,6 +47,7 @@ import { NonRxjsComponent } from './Observables/non-rxjs/non-rxjs.component';
 import { PromiseComponent } from './Observables/promise/promise.component';
 import { TwowayChildComponent } from './Binding/binding_examples/twoway-binding/twoway-child/twoway-child.component';
 import { InterceptorsHomeComponent } from './Interceptors/interceptors-home/interceptors-home.component';
+import { CommonPipesComponent } from './Pipes/common-pipes/common-pipes.component';
 
 export function getHighlightLanguages() {
   return {
@@ -99,7 +100,8 @@ export function getHighlightLanguages() {
     NonRxjsComponent,
     PromiseComponent,
     TwowayChildComponent,
-    InterceptorsHomeComponent
+    InterceptorsHomeComponent,
+    CommonPipesComponent
   ],
   imports: [
     HttpClientModule,

@@ -46,7 +46,17 @@ export class FilterPipe implements PipeTransform {
   </li>
 </ul>`;
 
-  html = ``;
+  code1 = `@Component( {
+  selector: 'app-custom-pipes',
+  templateUrl: './custom-pipes.component.html',
+  styleUrls: [ './custom-pipes.component.css' ],
+  providers: [ 'KilometersToMilesPipe' ]
+} )
+export class CustomPipesComponent implements OnInit {`;
+
+  code2 = `constructor( private convertToMiles: KilometersToMilesPipe ) { }`;
+
+  code3 = `this.convertToMiles.transform( x )`;
 
   constructor( private commonService: CommonService ) { }
 

@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
 <app-jumbotron></app-jumbotron>
 <div>
-  <h1>home component</h1>
+  <h1>
+    <div>Time: {{ time | async | date: 'EEEE MMMM d y, HH:mm:ss' }}</div>
+  </h1>
 </div>

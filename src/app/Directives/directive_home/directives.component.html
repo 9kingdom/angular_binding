@@ -2,44 +2,98 @@
 <div class="container-fluid">
   <hr />
   <div class="row">
-    <div class="col-3">
+    <div class="col-2">
       <nav class="navbar navbar-light flex-column make-me-sticky">
         <nav class="nav nav-pills flex-column" role="tablist">
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="atributedirectives" routerLinkActive="active">
-            <h5 (click)="setName('main')">
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="atributedirectives"
+            routerLinkActive="active"
+          >
+            <h6 (click)="setName('main')">
               Atribute Directives
-            </h5>
+            </h6>
           </a>
           <nav class="nav nav-pills flex-column">
-            <a class="nav-link ml-3 my-1" (click)="setName('ngmodel')" routerLink="atributedirectives/ngmodel"
-              routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">NgModel</a>
-            <a class="nav-link ml-3 my-1" (click)="setName('ngclass')" routerLink="atributedirectives/ngclass"
-              routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">NgClass</a>
-            <a class="nav-link ml-3 my-1" (click)="setName('ngstyle')" routerLink="atributedirectives/ngstyle"
-              routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">NgStyle</a>
+            <a
+              class="nav-link ml-3 my-1"
+              (click)="setName('ngmodel')"
+              routerLink="atributedirectives/ngmodel"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >NgModel</a
+            >
+            <a
+              class="nav-link ml-3 my-1"
+              (click)="setName('ngclass')"
+              routerLink="atributedirectives/ngclass"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >NgClass</a
+            >
+            <a
+              class="nav-link ml-3 my-1"
+              (click)="setName('ngstyle')"
+              routerLink="atributedirectives/ngstyle"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >NgStyle</a
+            >
           </nav>
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="structuraldirectives" routerLinkActive="active">
-            <h5 (click)="setName('main')">
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="structuraldirectives"
+            routerLinkActive="active"
+          >
+            <h6 (click)="setName('main')">
               Structural Directives
-            </h5>
+            </h6>
           </a>
           <nav class="nav nav-pills flex-column">
-            <a (click)="setName('ngIf')" class="nav-link ml-3 my-1" routerLink="structuraldirectives/ngif"
-              routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">NgIf</a>
-            <a (click)="setName('ngFor')" class="nav-link ml-3 my-1" routerLink="structuraldirectives/ngfor"
-              routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">NgFor</a>
-            <a (click)="setName('ngSwitch')" class="nav-link ml-3 my-1" routerLink="structuraldirectives/ngswitch"
-              routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">NgSwitch</a>
+            <a
+              (click)="setName('ngIf')"
+              class="nav-link ml-3 my-1"
+              routerLink="structuraldirectives/ngif"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >NgIf</a
+            >
+            <a
+              (click)="setName('ngFor')"
+              class="nav-link ml-3 my-1"
+              routerLink="structuraldirectives/ngfor"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >NgFor</a
+            >
+            <a
+              (click)="setName('ngSwitch')"
+              class="nav-link ml-3 my-1"
+              routerLink="structuraldirectives/ngswitch"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >NgSwitch</a
+            >
           </nav>
-          <a class="nav-link" data-toggle="pill" role="tab" routerLink="customdirective" routerLinkActive="active">
-            <h5>
+          <a
+            class="nav-link"
+            data-toggle="pill"
+            role="tab"
+            routerLink="customdirective"
+            routerLinkActive="active"
+          >
+            <h6>
               Custom directive
-            </h5>
+            </h6>
           </a>
         </nav>
       </nav>
     </div>
-    <div class="col-9">
+    <div class="col-10">
       <router-outlet></router-outlet>
     </div>
   </div>

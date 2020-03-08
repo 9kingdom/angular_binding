@@ -1,1 +1,46 @@
-<p>non-rxjs works!</p>
+<div class="row">
+  <div class="col">
+    <h1 [style.color]="'red'">
+      <strong>{{ bindingType }}</strong>
+    </h1>
+    <br />
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-7">
+        <pre><code [highlight]="code1"></code></pre>
+      </div>
+      <div class="col-5">
+        <ol class="container-fluid">
+          <li>import 'Observable' from RxJS</li>
+          <li>
+            implement <code>customIntervalObservable</code> observable with
+            <code>create()</code> (deprecated) method and 'observer' as an argument, which consist
+            of:
+            <ul>
+              <li>handler => <code>observer.next()</code> method with observable logic</li>
+              <li>
+                error (optional) => service for potential errors. Specific errors are caught here,
+                and passed to subscription where implementation, based on type of error, can be
+                presented to user.
+              </li>
+              <li>
+                completion (optional) => section for additional observable completion logic. No info
+                from this section is passed further.
+              </li>
+            </ul>
+          </li>
+          <li>
+            once observble is created, it must be assigned to
+            <code>firstObsSubscription</code> where observable data is processed and potential
+            'error' or 'completion' information can be presented to user.
+          </li>
+          <li>
+            in <code>ngOnDestroy()</code> lifecycle hook unscubscribe from observable to avoid
+            memory leaks.
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

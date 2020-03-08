@@ -1,1 +1,33 @@
-<p>rxjs-observable works!</p>
+<div class="row">
+  <div class="col">
+    <h1 [style.color]="'red'">
+      <strong>{{ bindingType }}</strong>
+    </h1>
+    <br />
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-7">
+        <pre><code [highlight]="code1"></code></pre>
+      </div>
+      <div class="col-5">
+        <ol class="container-fluid">
+          <li>
+            import <code>Subscription</code> and <code>interval</code> from RxJS.
+            <code>interval()</code> will emit an event with declared period in [ms].
+          </li>
+          <li>
+            in <code>ngOnInnit()</code> inside <code>subscribe()</code> method declare an event
+            which will be fired every 1000ms. The <code>interval()</code> with
+            <code>subscribe()</code> method is than assigned to
+            <code>firstObsSubscription</code> variable.
+          </li>
+          <li>
+            in <code>ngOnDestroy()</code> lifecycle hook unscubscribe from observable to avoid
+            memory leaks.
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

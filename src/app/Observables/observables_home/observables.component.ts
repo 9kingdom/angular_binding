@@ -7,7 +7,6 @@ import { CommonService } from 'src/app/common.service';
   styleUrls: [ './observables.component.css' ]
 } )
 export class ObservablesComponent implements OnInit {
-  bindingType = 'Observables';
 
   constructor( private commonService: CommonService ) { }
 

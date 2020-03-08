@@ -1,35 +1,78 @@
-<div class="container">
-  <h5>1. Create filer class with the following decorator:</h5>
-  <div class="container-fluid">
-    <pre><code [highlight]="pipeDecorator"></code></pre>
-    <div class="alert alert-info" role="alert">
-      Class must implement <code>PipeTransform</code> interface and provide
-      <code>transform()</code> method whith pipe logic.
+<div class="container-fluid" style="text-align:left">
+  <div class="row">
+    <div class="col-">
+      <h1>
+        <font color="red"
+          ><strong>{{ bindingType }}</strong></font
+        >
+      </h1>
     </div>
   </div>
-  <h5>2. Class:</h5>
-  <div class="container-fluid">
-    <pre><code [highlight]="filterPipe"></code></pre>
-  </div>
-  <h5>3. Usage:</h5>
-  <div class="container-fluid">
-    <div class="alert alert-info" role="alert">
-      Keep in mind that pipe has priority i.e. filtering will be applied before ngFor.
-    </div>
-    <div class="alert alert-info" role="alert">
-      <ul>
-        <li><code>filter</code> => pipe name,</li>
-        <li>
-          <code>filterString</code> => value used as a filter e.g.
-          <code>filterString='online'</code>
-        </li>
-        <li>
-          <code>propName</code> => object field name which <strong>value</strong> will be compared
-          to
-          <code>filterString</code>
-        </li>
-      </ul>
-    </div>
-    <pre><code [highlight]="usage"></code></pre>
-  </div>
+  <table class="table container-fluid">
+    <hr />
+    <tbody>
+      <tr class="row">
+        <h5>1. Create filer class with the following decorator:</h5>
+        <div class="container-fluid">
+          <pre><code [highlight]="pipeDecorator"></code></pre>
+          <div class="alert alert-info" role="alert">
+            <ul>
+              <li>
+                Class must implement <code>PipeTransform</code> interface and provide
+                <code>transform()</code> method whith pipe logic.
+              </li>
+              <li>Class must be declared in app-module.</li>
+            </ul>
+          </div>
+        </div>
+        <h5>2. Class:</h5>
+        <div class="container-fluid">
+          <pre><code [highlight]="filterPipe"></code></pre>
+        </div>
+        <h5>3. Usage in html:</h5>
+        <div class="container-fluid">
+          <div class="alert alert-info" role="alert">
+            Keep in mind that pipe has priority i.e. filtering will be applied before ngFor.
+          </div>
+          <div class="alert alert-info" role="alert">
+            <ul>
+              <li><code>filter</code> => pipe name,</li>
+              <li>
+                <code>filterString</code> => value used as a filter e.g.
+                <code>filterString='online'</code>
+              </li>
+              <li>
+                <code>propName</code> => object field name which <strong>value</strong> will be
+                compared to
+                <code>filterString</code>
+              </li>
+            </ul>
+          </div>
+          <pre><code [highlight]="usage"></code></pre>
+        </div>
+        <h5>4. Usage inside component.ts:</h5>
+        <div class="container-fluid">
+          <div>
+            It is possible to use custom pipe inside .ts. Here are the steps:
+            <ul>
+              <li>
+                add custom pipe <code>KilometersToMilesPipe</code> to <code>providers</code> section
+                within class:
+                <pre><code [highlight]="code1"></code></pre>
+              </li>
+              <li>
+                add custom pipe variable to the class constructor:
+                <pre><code [highlight]="code2"></code></pre>
+              </li>
+              <li>
+                In order to use the pipe in code all you have to do is make the following function
+                call to <code>transform()</code> method:
+                <pre><code [highlight]="code3"></code></pre>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </tr>
+    </tbody>
+  </table>
 </div>

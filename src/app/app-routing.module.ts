@@ -35,6 +35,7 @@ import { SubjectComponent } from './Observables/subject/subject.component';
 import { NonRxjsComponent } from './Observables/non-rxjs/non-rxjs.component';
 import { PromiseComponent } from './Observables/promise/promise.component';
 import { InterceptorsHomeComponent } from './Interceptors/interceptors-home/interceptors-home.component';
+import { CommonPipesComponent } from './Pipes/common-pipes/common-pipes.component';
 
 const appRoutes: Routes = [
   {
@@ -109,7 +110,8 @@ const appRoutes: Routes = [
           { path: 'stringpipes', component: StringPipesComponent },
           { path: 'numberpipes', component: NumberPipesComponent },
           { path: 'datepipes', component: DatePipesComponent },
-          { path: 'custompipes', component: CustomPipesComponent }
+          { path: 'custompipes', component: CustomPipesComponent },
+          { path: 'commonpipes', component: CommonPipesComponent }
         ]
       },
       {
@@ -117,7 +119,7 @@ const appRoutes: Routes = [
         component: ObservablesComponent,
         children: [
           {
-            // thanks to this it will load automatically the 'pipesexample' component
+            // thanks to this it will load automatically the 'customobservable' component
             path: '',
             redirectTo: 'customobservable',
             pathMatch: 'full'

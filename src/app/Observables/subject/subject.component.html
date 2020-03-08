@@ -1,1 +1,65 @@
-<p>subject works!</p>
+<div class="row">
+  <div class="col">
+    <h1 [style.color]="'red'">
+      <strong>{{ bindingType }}</strong>
+    </h1>
+    <br />
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="alert alert-info container" role="alert">
+        A unique sort of RxJS Observable that supports a specific value to be multicasted to
+        multiple Observers. In other words <strong>Subject</strong> can emit data and have the
+        ability to be subscribed to.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7">
+        <pre><code [highlight]="code1"></code></pre>
+      </div>
+      <div class="col-5">
+        Example of <strong>subscription</strong> and use of Subject to <strong>emit</strong> data.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7">
+        <pre><code [highlight]="code2"></code></pre>
+      </div>
+      <div class="col-5">
+        <strong>Multicast</strong> - Subjects support multipple subscriptions. They can be used in a
+        service to fetch some data, and send the result to all components that subscribed to that
+        Subject.
+      </div>
+    </div>
+    <div class="row">
+      <div class="alert alert-danger container" role="alert">
+        <p>
+          Do not expose the Subject object directly to your components. Instead, return a good old
+          Observable version of it:
+        </p>
+        <pre><code [highlight]="code3"></code></pre>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7">
+        <pre><code [highlight]="code4"></code></pre>
+      </div>
+      <div class="col-5">
+        <strong>Behaviour Subject</strong> - with behavior subjects, at the moment you subscribe to
+        it, you always get the latest value form it.<br />
+        <strong>Note: </strong>it is required to provide initial value while instantiating behaviour
+        subject.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7">
+        <pre><code [highlight]="code5"></code></pre>
+      </div>
+      <div class="col-5">
+        <strong>Replay Subjects</strong> keep a given number of historical values so that those
+        values can be replayed to new subscribers. As a result, as a soon as a new data comes up, it
+        gets the last two values, as well as any new value that comes up later on.
+      </div>
+    </div>
+  </div>
+</div>

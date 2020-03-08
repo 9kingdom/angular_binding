@@ -1,1 +1,78 @@
-<p>promise works!</p>
+<div class="row">
+  <div class="col">
+    <h1 [style.color]="'red'">
+      <strong>{{ bindingType }}</strong>
+    </h1>
+    <br />
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="alert alert-info container" role="alert">
+        <p>
+          <strong>Promise</strong> is used mostly with HTTP requests. A Promise constructor takes
+          two parameters: <code>resolve</code> and <code>reject</code>.
+        </p>
+        <p>
+          The <strong>resolve()</strong> function is invoked when the asynchronous task is completed
+          and renders the result of the assigned tasks.
+        </p>
+        <p>
+          The <strong>reject()</strong> function is invoked when the assigned task fails and returns
+          predefined error.
+        </p>
+        <p>Promise has three probable states:</p>
+        <ul>
+          <li><strong>Pending</strong>: Initial state, neither fulfilled nor rejected</li>
+          <li>
+            <strong>Fulfilled</strong>: onFulfilled() will be invoked, corresponds to
+            <code>resolve()</code>
+          </li>
+          <li>
+            <strong>Rejected</strong>: onRejected() will be invoked, corresponds to
+            <code>reject()</code>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7">
+        <pre><code [highlight]="code1"></code></pre>
+      </div>
+      <div class="col-5">
+        <ol>
+          <li>inject HTTP client via constructor.</li>
+          <li>
+            provide implementation of <code>resolve()</code> and <code>reject()</code> methods
+            inside <code>toPromise()</code> method:
+            <ul>
+              <li>
+                <strong><code>resolve()</code></strong
+                >:
+                <p>
+                  - <code>get()</code> method of HTTP client fetch 'posts' from the API url and
+                  returns <strong>Observable</strong> which than is converted to
+                  <code>Promise</code> with <code>toPromise()</code> method.
+                </p>
+                <p>
+                  - new 'posts' from API url are mapped to <code>Post</code> class with
+                  <code>map()</code> oparator:
+                </p>
+                <pre><code [highlight]="code2"></code></pre>
+              </li>
+              <li>
+                <strong><code>reject()</code></strong> => in case of an error,
+                <code>reject()</code> method is executed
+              </li>
+            </ul>
+          </li>
+          <p>
+            Source:
+            <a href="https://www.positronx.io/angular-promises-example-manage-http-requests/"
+              >link1</a
+            >
+          </p>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

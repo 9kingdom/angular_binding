@@ -14,10 +14,49 @@
     </div>
   </div>
   <br />
-  <div class="alert alert-secondary" role="alert">
+  <div class="container-fluid">
     <p>
-      Wstaw tutaj opis Observable!
+      In Angular, we can use either Promise or Observable for handling asynchronous data. Both
+      <code>get()</code> and <code>post()</code> method of Http and HttpClient return Observable and
+      it can be converted into Promise using <code>toPromise()</code> method. Note, that Promises
+      are most commonly used to handle HTTP requests.
     </p>
+    <div class="alert alert-primary" role="alert">
+      Notes:
+      <ul>
+        <li>
+          Promise returns the very first value and ignore the remaining values whereas Observable
+          return all values and print 1, 2, 3 in the console.
+        </li>
+        <li>
+          Promise is eager and returns the value regardless of <code>then()</code> method while
+          Observable is lazy in nature and do not return any value until we subscribe.
+        </li>
+        <li>
+          Observable is cancellable in nature by invoking unsubscribe() method, but Promise is not
+          cancellable in nature.
+        </li>
+        <li>You can't use typical RxJS operators with Promise.</li>
+      </ul>
+    </div>
+    <h4><strong>Difference between Observable and Promise</strong></h4>
+    <p>
+      Promise emits a single value while Observable emits multiple values. For instane, while
+      handling a HTTP request, Promise can manage a single response for the same request, but in
+      case of multiple responses to the same request, we have to use Observable.
+    </p>
+    <h4><strong>Promise</strong></h4>
+    <div class="container">
+      <pre><code [highlight]="code1"></code></pre>
+      <strong>Output</strong>
+      <pre><code [highlight]="code2"></code></pre>
+    </div>
+    <h4><strong>Observable</strong></h4>
+    <div class="container">
+      <pre><code [highlight]="code3"></code></pre>
+      <strong>Output</strong>
+      <pre><code [highlight]="code4"></code></pre>
+    </div>
   </div>
 </div>
 <div class="container-fluid">

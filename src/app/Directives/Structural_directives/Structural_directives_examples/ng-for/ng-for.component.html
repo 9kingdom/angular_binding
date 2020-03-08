@@ -14,11 +14,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let hero of heros; let i = index;">
-        <td>{{i+1}}</td>
-        <td>{{hero.mark}}</td>
-        <td>{{hero.name}}</td>
-        <td>{{hero.superpower}}</td>
+      <tr *ngFor="let hero of heros; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ hero.mark }}</td>
+        <td>{{ hero.name }}</td>
+        <td>{{ hero.superpower }}</td>
       </tr>
     </tbody>
   </table>
@@ -27,16 +27,20 @@
     <li class="list-group-item">
       <h5>1. Finding the index of a list element:</h5>
     </li>
-    <p>A very common requirement is to add to a list the numeric index position of its element. We can get the index of
-      the current element by using the index variable:</p>
+    <p>
+      A very common requirement is to add to a list the numeric index position of its element. We
+      can get the index of the current element by using the index variable:
+    </p>
     <pre><code [highlight]="ngForCode1"></code></pre>
     <li class="list-group-item">
       <h5>2. Stripe a table using even and odd:</h5>
     </li>
-    <p>Let's say that to the above table we want to add a CSS class <code>even</code> if the row is even and the CSS
-      class <code>odd</code> if the row is odd.
-      In order to do so, we have a couple of variables available for that: <strong>even</strong> and
-      <strong>odd</strong>, that can be used in the following way together with <strong>ngClass</strong>:</p>
+    <p>
+      Let's say that to the above table we want to add a CSS class <code>even</code> if the row is
+      even and the CSS class <code>odd</code> if the row is odd. In order to do so, we have a couple
+      of variables available for that: <strong>even</strong> and <strong>odd</strong>, that can be
+      used in the following way together with <strong>ngClass</strong>:
+    </p>
     <pre><code [highlight]="ngForCode2"></code></pre>
     <table class="table">
       <thead>
@@ -48,20 +52,24 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let hero of heros; let i = index; let even = even; let odd = odd"
-          [ngClass]="{ odd: odd, even: even }">
-          <td>{{i+1}}</td>
-          <td>{{hero.mark}}</td>
-          <td>{{hero.name}}</td>
-          <td>{{hero.superpower}}</td>
+        <tr
+          *ngFor="let hero of heros; let i = index; let even = even; let odd = odd"
+          [ngClass]="{ odd: odd, even: even }"
+        >
+          <td>{{ i + 1 }}</td>
+          <td>{{ hero.mark }}</td>
+          <td>{{ hero.name }}</td>
+          <td>{{ hero.superpower }}</td>
         </tr>
       </tbody>
     </table>
     <li class="list-group-item">
       <h5>3. Identifying the first and the last element of a list</h5>
     </li>
-    <p>Just like the even and odd functionality, there are also two other variables that can be used to identify the
-      first and the last elements of the list:</p>
+    <p>
+      Just like the even and odd functionality, there are also two other variables that can be used
+      to identify the first and the last elements of the list:
+    </p>
     <pre><code [highlight]="ngForCode3"></code></pre>
     <table class="table table-striped">
       <thead>
@@ -73,27 +81,44 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let hero of heros; let i = index let first = first; let last = last"
-          [ngClass]="{ first: first, last: last }">
-          <td>{{i+1}}</td>
-          <td>{{hero.mark}}</td>
-          <td>{{hero.name}}</td>
-          <td>{{hero.superpower}}</td>
+        <tr
+          *ngFor="let hero of heros; let i = index; let first = first; let last = last"
+          [ngClass]="{ first: first, last: last }"
+        >
+          <td>{{ i + 1 }}</td>
+          <td>{{ hero.mark }}</td>
+          <td>{{ hero.name }}</td>
+          <td>{{ hero.superpower }}</td>
         </tr>
       </tbody>
     </table>
     <li class="list-group-item">
       <h5>4. trackBy</h5>
     </li>
-    <p>Often NgFor is used to iterate through a list of objects with a unique ID field. In this case, we can provide a
-      trackBy function which helps Angular keep track of items in the list so that it can detect which items have been
-      added or removed and improve performance.</p>
     <p>
-      Angular will try and track objects by reference to determine which items should be created and destroyed. However,
-      if you replace the list with a new source of objects, perhaps as a result of an API request - we can get some
-      extra performance by telling Angular how we want to keep track of things.
+      Angular by default keeps track of the objects using object references. So, when we refresh
+      table content or want to add another list which contains elements already present in the
+      table, Angular has no choice but to delete all the old DOM elements and insert the new DOM
+      elements. This might cause performance issue.
     </p>
-    <li class="list-group-item">Source: <a href="https://blog.angular-university.io/angular-2-ngfor/">link1</a>
-      <a href="https://angular-2-training-book.rangle.io/directives/structural_directives/ng_for_directive"> link2</a></li>
+    <p>
+      To overcome the above problem, Angular comes with a solution: <code>trackBy</code>. The
+      trackBy function in Angular takes the current item as an argument and then it returns a unique
+      identifier using which we can track that item. In example below, we are going to track by
+      index of item.
+    </p>
+    <p>We need to provide method which tells by what object field Angular should track by:</p>
+    <pre><code [highlight] = "ngForCode4"></code></pre>
+    <p>And use it in HTML:</p>
+    <pre><code [highlight] = "ngForHtml"></code></pre>
+    <li class="list-group-item">
+      Source: <a href="https://blog.angular-university.io/angular-2-ngfor/">link1</a>
+      <a
+        href="https://angular-2-training-book.rangle.io/directives/structural_directives/ng_for_directive"
+      >
+        link2</a
+      >
+      <a href="https://medium.com/@kesavikanesh/angular-ngfor-trackby-f7aeb530a031">link3</a>
+    </li>
   </ul>
 </div>
