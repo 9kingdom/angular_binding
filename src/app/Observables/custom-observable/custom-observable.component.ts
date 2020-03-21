@@ -31,6 +31,51 @@ data.next(3);
 Observable 2
 Observable 3`;
 
+  code5 = `let sub1: Subscription;
+let sub2: Subscription;
+ngOnInit() {
+   this.sub1 = this.service.Subject1.subscribe(() => {});
+   this.sub2 = this.service.Subject2.subscribe(() => {});
+}
+ngOnDestroy() {
+   if (this.sub1) {
+      this.sub1.unsubscribe();
+   }
+   if (this.sub2) {
+      this.sub2.unsubscribe();
+   }
+}`;
+
+  code6 = `let subs: Subscription[] = [];
+ngOnInit() {
+   this.subs.push(this.service.Subject1.subscribe(() => {}));
+   this.subs.push(this.service.Subject2.subscribe(() => {}));
+}
+ngOnDestroy() {
+   subs.forEach(sub => sub.unsubscribe());
+}`;
+
+  code7 = `private subscriptions = new Subscription();
+ngOnInit() {
+   this.subscriptions.add(this.service.Subject1.subscribe(() => {}));
+   this.subscriptions.add(this.service.Subject2.subscribe(() => {}));
+}
+ngOnDestroy() {
+   this.subscriptions.unsubscribe();
+}`;
+
+  code8 = `ngUnsubscribe = new Subject();
+ngOnInit() {
+   this.service.Subject1.pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(() => {});
+   this.service.Subject2.pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(() => {});
+}
+ngOnDestroy() {
+   this.ngUnsubscribe.next();
+   this.ngUnsubscribe.complete();
+}`;
+
   constructor( private commonService: CommonService ) { }
 
   ngOnInit() {

@@ -5,29 +5,414 @@
     </h1>
     <br />
   </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-7">
-        <pre><code [highlight]="code1"></code></pre>
-      </div>
-      <div class="col-5">
-        <ol class="container-fluid">
-          <li>
-            import <code>Subscription</code> and <code>interval</code> from RxJS.
-            <code>interval()</code> will emit an event with declared period in [ms].
-          </li>
-          <li>
-            in <code>ngOnInnit()</code> inside <code>subscribe()</code> method declare an event
-            which will be fired every 1000ms. The <code>interval()</code> with
-            <code>subscribe()</code> method is than assigned to
-            <code>firstObsSubscription</code> variable.
-          </li>
-          <li>
-            in <code>ngOnDestroy()</code> lifecycle hook unscubscribe from observable to avoid
-            memory leaks.
-          </li>
-        </ol>
-      </div>
-    </div>
+  <div class="container-fluid" style="text-align:left">
+    <table class="table">
+      <tbody>
+        <tr class="row">
+          <td class="col-7" scope="row">
+            <pre><code [highlight]="code1"></code></pre>
+          </td>
+          <td class="col-5" scope="row">
+            <ol class="container-fluid">
+              <li>
+                import <code>Subscription</code> and <code>interval</code> from RxJS.
+                <code>interval()</code> will emit an event with declared period in [ms].
+              </li>
+              <li>
+                in <code>ngOnInnit()</code> inside <code>subscribe()</code> method declare an event
+                which will be fired every 1000ms. The <code>interval()</code> with
+                <code>subscribe()</code> method is than assigned to
+                <code>firstObsSubscription</code> variable.
+              </li>
+              <li>
+                in <code>ngOnDestroy()</code> lifecycle hook unscubscribe from observable to avoid
+                memory leaks.
+              </li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <h3>
+            <strong>Other examples:</strong>
+          </h3>
+          <br />
+        </tr>
+        <div class="container">
+          <tr>
+            <h5><strong>Observe Timer Example</strong></h5>
+          </tr>
+          <tr>
+            <p>
+              This example demonstrates the basic usage by subscribing it and stopped after
+              unsubscribing it. <br />Add this import of RxJS timer.
+            </p>
+            <pre><code>import {{'{'}} timer {{'}'}} from 'rxjs';</code></pre>
+            <p>Add a constant variable after the imports that declare the RxJS timer.</p>
+            <pre><code>const source = timer(1000, 2000);</code></pre>
+            <p>Subscribe the RxJS timer then print out to Javascript console.</p>
+            <pre><code>const subscribe = source.subscribe(val =&gt; console.log(val));</code></pre>
+            <p>Add a function that will unsubscribe the RxJS timer.</p>
+            <pre><code>setTimeout(() =&gt; {{'{'}} subscribe.unsubscribe(); {{'}'}}, 10000);</code></pre>
+            <p>
+              Now, you will see the timer print the increased steps and stopped after 10 seconds.
+            </p>
+          </tr>
+          <tr>
+            <h5><strong>Basic Subscribing using Observer</strong></h5>
+            <p>
+              RxJS `of` operator is used to emit a variable amount of values in a sequence and then
+              emits a 'complete' notification.
+              <br />Add RxJS `of` operator.
+            </p>
+            <pre><code>import {{'{'}} of {{'}'}} from 'rxjs';</code></pre>
+            <p>
+              Next, before the Angular @Component declare a constant variable which contains the
+              sequence of observable string that will be emitted using RxJS `of` operator.
+            </p>
+            <pre><code>const myObservable = of('apple', 'orange', 'grappe');</code></pre>
+            <p>Add a constant observer object variable after the above constant.</p>
+            <pre><code>const myObserver = {{'{'}}
+              &nbsp; next: (x: string) =&gt; console.log('Observer got a next value: ' + x),
+              &nbsp; error: (err: string) =&gt; console.error('Observer got an error: ' + err),
+              &nbsp; complete: () =&gt; console.log('Observer got a complete notification'),
+              {{'}'}};</code></pre>
+            <p>
+              Inside a constructor that will execute the observable by subscribing to the above
+              observer object.
+            </p>
+            <pre><code>constructor() {{'{'}}
+              &nbsp; myObservable.subscribe(myObserver);
+              {{'}'}}</code></pre>
+            <p>
+              That observable subscribing example will show output like this.
+            </p>
+            <pre><code>Observer got a next value: apple
+app.component.ts:11 Observer got a next value: orange
+app.component.ts:11 Observer got a next value: grappe
+app.component.ts:13 Observer got a complete notification
+core.js:38780 Angular is running in the development mode. Call enableProdMode() to enable the production mode.
+client:52 [WDS] Live Reloading enabled.</code></pre>
+          </tr>
+          <tr>
+            <h5><strong>Observable with Constructor Example</strong></h5>
+            <p>
+              We can use the observable constructor to create an observable stream of any type. The
+              observable’s subscribe() executes with the constructor argument. The Observer object
+              received by a subscriber function then publishes values using the observer's next()
+              method. <br />Add RxJS observable import:.
+            </p>
+            <pre><code>import {{'{'}} Observable {{'}'}} from 'rxjs';</code></pre>
+            <p>
+              Add a function that runs the sequence of string synchronously then unsubscribe after
+              values are delivered.
+            </p>
+            <pre><code>function sequenceSubscriber(observer) {{'{'}}
+&nbsp; observer.next('Apple');
+&nbsp; observer.next('Orange');
+&nbsp; observer.next('Grappe');
+&nbsp; observer.complete();
+
+&nbsp; return {{'{'}}unsubscribe() {{'{'}} {{'}'}}{{'}'}};
+{{'}'}}</code></pre>
+            <p>Instantiate Observable that will deliver the above sequence of string.</p>
+            <pre><code>const sequence = new Observable(sequenceSubscriber);</code></pre>
+            <p>
+              Execute the observable and print out the string sequence to the console.
+            </p>
+            <pre><code>sequence.subscribe({{'{'}}
+&nbsp; next(msg) {{'{'}} console.log(msg); },
+&nbsp; complete() {{'{'}} console.log('Finished sequence'); }
+});</code></pre>
+          </tr>
+          <tr>
+            <h5><strong>The Observable that Publishes Events Example</strong></h5>
+            <p>First, add an HTML input element to the existing `src/app/app.component.html`.</p>
+            <pre><code>&lt;div&gt;
+&nbsp; &lt;input type="text" id="yourname" placeholder="Type your name here"/&gt;
+&lt;/div&gt;</code></pre>
+            <p>
+              Back to `src/app/app.component.ts`, modify this import to add Angular AfterViewInit
+              lifecycle interface.
+            </p>
+            <pre><code>import {{'{'}} Component, AfterViewInit } from '@angular/core';</code></pre>
+            <p>
+              Implement AfterViewInit in the main class.
+            </p>
+            <pre><code>export class AppComponent implements AfterViewInit {{'{'}}
+...
+}</code></pre>
+            <p>Add a function that executes the Observable of the event from the target element.</p>
+            <pre><code>fromEvent(target: HTMLInputElement, eventName: string) {{'{'}}
+&nbsp; return new Observable((observer) =&gt; {{'{'}}
+&nbsp; &nbsp; const handler = (e: unknown) =&gt; observer.next(e);
+
+&nbsp; &nbsp; target.addEventListener(eventName, handler);
+
+&nbsp; &nbsp; return () =&gt; {{'{'}}
+&nbsp; &nbsp; &nbsp; target.removeEventListener(eventName, handler);
+&nbsp; &nbsp; };
+&nbsp; });
+}</code></pre>
+            <p>
+              Add ngAfterViewInit() function that calls the above method to create an observable
+              that publishes key-down events.
+            </p>
+            <pre><code>ngAfterViewInit() {{'{'}}
+&nbsp; const ESC_KEY = 27;
+&nbsp; const nameInput = document.getElementById('yourname') as HTMLInputElement;
+&nbsp; this.fromEvent(nameInput, 'keydown')
+&nbsp; .subscribe((e: KeyboardEvent) =&gt; {{'{'}}
+&nbsp; &nbsp; if (e.keyCode === ESC_KEY) {{'{'}}
+&nbsp; &nbsp; &nbsp; nameInput.value = '';
+&nbsp; &nbsp; }
+&nbsp; });
+}</code></pre>
+            <p>Now, every ESC key push in the HTML input element, it will clear the input value.</p>
+          </tr>
+          <tr>
+            <h5>
+              <strong>Observable and RxJS with HttpClient</strong>
+            </h5>
+            <p>
+              Almost every Angular project requires REST API requests using Angular HttpClient,
+              Observable, and RxJS. So, this example is a combination of these Angular features.
+              This time we will put all in `src/app/app.component.html`, in the real world, you can
+              separate the REST API access using their own services. First, open and edit
+              `src/app/app.module.ts` then add this import of HttpClientModule that is part of
+              @angular/common/http.
+            </p>
+            <pre><code>import {{'{'}} HttpClientModule } from '@angular/common/http';</code></pre>
+            <p>Add it to @NgModule import array after the BrowserModule.</p>
+            <pre><code>imports: [
+&nbsp; BrowserModule,
+&nbsp; HttpClientModule
+],</code></pre>
+            <p>
+              Back to `src/app/app.component.ts`, add these imports of the Angular HttpClient, RxJS,
+              and Observable.
+            </p>
+            <pre><code>import {{'{'}} Observable, of, throwError } from 'rxjs';
+import {{'{'}} HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import {{'{'}} catchError, tap, map } from 'rxjs/operators';</code></pre>
+            <p>Add these constants before the `@Component`.</p>
+            <pre><code>const httpOptions = {{'{'}}
+&nbsp; headers: new HttpHeaders({{'{'}}'Content-Type': 'application/json'})
+};
+const apiUrl = 'http://localhost:3000/api/v1/products';</code></pre>
+            <pre><code>constructor(private http: HttpClient) {{'{'}} }</code></pre>
+            <p>Add the error handler function that returns an Observable.</p>
+            <pre><code>private handleError&lt;T&gt; (operation = 'operation', result?: T) {{'{'}}
+&nbsp; return (error: any): Observable&lt;T&gt; =&gt; {{'{'}}
+
+&nbsp; &nbsp; // TODO: send the error to remote logging infrastructure
+&nbsp; &nbsp; console.error(error); // log to console instead
+
+&nbsp; &nbsp; // Let the app keep running by returning an empty result.
+&nbsp; &nbsp; return of(result as T);
+&nbsp; };
+}</code></pre>
+            <p>
+              Add the functions to get data from the REST API and return the response as Observable.
+              It also, extract or read data using the Pipe method and tap operator and catch the
+              error by calling the error handler.
+            </p>
+            <ul>
+              <li>
+                RxJS pipe method is an Observable method to make data reading easier.
+              </li>
+              <li>
+                RxJS Tap operator uses to perform a side effect for every emission on the source
+                Observable but returns an Observable that is identical to the source.
+              </li>
+            </ul>
+            <pre><code>getProducts(): Observable&lt;any[]&gt; {{'{'}}
+&nbsp; return this.http.get&lt;any[]&gt;(apiUrl)
+&nbsp; &nbsp; .pipe(
+&nbsp; &nbsp; &nbsp; tap(product =&gt; console.log('fetched products')),
+&nbsp; &nbsp; &nbsp; catchError(this.handleError('getProducts', []))
+&nbsp; &nbsp; );
+}
+
+getProduct(id: number): Observable&lt;any&gt; {{'{'}}
+&nbsp; const url = `${{'{'}}apiUrl}/${{'{'}}id}`;
+&nbsp; return this.http.get&lt;any&gt;(url).pipe(
+&nbsp; &nbsp; tap(_ =&gt; console.log(`fetched product id=${{'{'}}id}`)),
+&nbsp; &nbsp; catchError(this.handleError&lt;any&gt;(`getProduct id=${{'{'}}id}`))
+&nbsp; );
+}</code></pre>
+            <p>
+              To run that function simply call the subscribe method and put the result to 'data[]'
+              variable.
+            </p>
+            <pre><code>data: any[] = [];
+
+constructor(private http: HttpClient) {{'{'}}
+&nbsp; this.getProducts()
+&nbsp; .subscribe((res: any) =&gt; {{'{'}}
+&nbsp; &nbsp; this.data = res;
+&nbsp; &nbsp; console.log(this.data);
+&nbsp; }, err =&gt; {{'{'}}
+&nbsp; &nbsp; console.log(err);
+&nbsp; });
+}</code></pre>
+          </tr>
+          <tr>
+            <h5><strong>Data Exchange between Components</strong></h5>
+            <p>
+              This example shows data exchange between components using service. <br />Add a service
+              and two components.
+            </p>
+            <pre><code>ng g service Shared
+ng g component Acomp
+ng g component Bcomp</code></pre>
+            <p>
+              Open and edit `src/app/shared.service.ts` then add import of RxJS BehaviorSubject.
+              BehaviorSubject is a Subject that requires an initial value and emits its current
+              value to new subscribers.
+            </p>
+            <pre><code>import {{'{'}} BehaviorSubject } from 'rxjs';</code></pre>
+            <p>
+              Declare a variable before the constructor that instantiates BehaviorSubject with
+              initial data. Also, a variable that converts BehaviorSubject to Observable (see why it
+              is required in <a href="/observables/subject">Subject</a> section).
+            </p>
+            <pre><code>private dataSource = new BehaviorSubject({{'{'}}name: 'Maradona'});
+currentData = this.dataSource.asObservable();</code></pre>
+            <p>Add a function to change the data of BehaviorSubject.</p>
+            <pre><code>changeData(data: any) {{'{'}}
+&nbsp; this.dataSource.next(data);
+}</code></pre>
+            <p>
+              Next, open and edit `src/app/acomp/acomp.component.ts` then add these imports of
+              Router and SharedService.
+            </p>
+            <pre><code>import {{'{'}} Router } from '@angular/router';
+import {{'{'}} SharedService } from '../shared.service';</code></pre>
+            <p>Inject that module to the constructor.</p>
+            <pre><code>constructor(private router: Router, private sharedData: SharedService) {{'{'}} }</code></pre>
+            <p>
+              Declare <code>data</code> variable before the constructor to hold the received data.
+            </p>
+            <pre><code>data: any;</code></pre>
+            <p>Subscribe to the observable data from the service inside the NgOnInit function.</p>
+            <pre><code>ngOnInit() {{'{'}}
+&nbsp; this.sharedData.currentData.subscribe(data =&gt; this.data = data);
+}</code></pre>
+            <p>
+              Add a function to change the shared data and emit it to its subscriber then navigate
+              to the other component to see the data changes.
+            </p>
+            <pre><code>changeData() {{'{'}}
+&nbsp; this.sharedData.changeData({{'{'}}name: 'Eric Cantona'});
+&nbsp; this.router.navigate(['/bcomp']);
+}</code></pre>
+            <p>
+              In `src/app/acomp/acomp.component.html` add:
+            </p>
+            <pre><code>&lt;p&gt;acomp works!&lt;/p&gt;
+&lt;p&gt;{{'{'}}{{'{'}}data.name}}&lt;/p&gt;
+&lt;p&gt;
+&nbsp; &lt;button (click)="changeData()"&gt;Send Data&lt;/button&gt;
+&lt;/p&gt;</code></pre>
+            <p>
+              For component B in `src/app/bcomp/bcomp.component.ts` add below implementation:
+            </p>
+            <pre><code>import {{'{'}} Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {{'{'}} Router } from '@angular/router';
+import {{'{'}} SharedService } from '../shared.service';
+
+@Component({{'{'}}
+&nbsp; selector: 'app-bcomp',
+&nbsp; templateUrl: './bcomp.component.html',
+&nbsp; styleUrls: ['./bcomp.component.scss']
+})
+export class BcompComponent implements OnInit {{'{'}}
+
+&nbsp; data: any;
+
+&nbsp; constructor(private router: Router, private sharedData: SharedService) {{'{'}} }
+
+&nbsp; ngOnInit() {{'{'}}
+&nbsp; &nbsp; this.sharedData.currentData.subscribe(data =&gt; this.data = data);
+&nbsp; }
+
+&nbsp; changeData() {{'{'}}
+&nbsp; &nbsp; this.sharedData.changeData({{'{'}}name: 'Romario Varia'});
+&nbsp; &nbsp; this.router.navigate(['/acomp']);
+&nbsp; }
+
+}</code></pre>
+            <p>
+              Finally in `src/app/bcomp/bcomp.component.html` add:
+            </p>
+            <pre><code>&lt;p&gt;acomp works!&lt;/p&gt;
+&lt;p&gt;{{'{'}}{{'{'}}data.name}}&lt;/p&gt;
+&lt;p&gt;
+&nbsp; &lt;button (click)="changeData()"&gt;Send Data&lt;/button&gt;
+&lt;/p&gt;</code></pre>
+          </tr>
+          <tr>
+            <h5><strong>Observable and RxJS in Reactive Forms</strong></h5>
+            <p>
+              Below example shows how Observable detects FormControl value changes. Firset, register
+              ReactiveForm in `src/app/app.module.ts` and add the following imports:
+            </p>
+            <pre><code>import {{'{'}} FormsModule, ReactiveFormsModule } from '@angular/forms';</code></pre>
+            <p>Register the above modules in `@NgModule` imports.</p>
+            <pre><code>imports: [
+&nbsp; BrowserModule,
+&nbsp; HttpClientModule,
+&nbsp; FormsModule,
+&nbsp; ReactiveFormsModule,
+&nbsp; AppRoutingModule
+],</code></pre>
+            <p>
+              Next, in `src/app/app.component.ts` add the following imports:
+            </p>
+            <pre><code>import {{'{'}} FormGroup, FormControl } from '@angular/forms';</code></pre>
+            <p>
+              Add variables of FormGroup and log that will be collecting every FormControl value
+              change.
+            </p>
+            <pre><code>inputChangeLog: string[] = [];
+inputForm: FormGroup;</code></pre>
+            <p>
+              Add a function that detects FormControl value change and saves to log array variable.
+            </p>
+            <pre><code>logInputChange() {{'{'}}
+&nbsp; const nameControl = this.inputForm.get('name');
+&nbsp; nameControl.valueChanges.forEach(
+&nbsp; &nbsp; (value: string) =&gt; {{'{'}}
+&nbsp; &nbsp; &nbsp; this.inputChangeLog.push(value);
+&nbsp; &nbsp; &nbsp; console.log(this.inputChangeLog);
+&nbsp; &nbsp; }
+&nbsp; );
+}</code></pre>
+            <p>
+              Initialize the FormGroup and call log input changes function inside the NgOnInit
+              function.
+            </p>
+            <pre><code>ngOnInit() {{'{'}}
+&nbsp; this.inputForm = new FormGroup({{'{'}}
+&nbsp; &nbsp; name: new FormControl()
+&nbsp; });
+&nbsp; this.logInputChange();
+}</code></pre>
+            <p>
+              Next, in `src/app/app.component.html` add the FormGroup and
+              InputControl to the main &lt;div&gt;.
+            </p>
+            <pre><code>&lt;div class="content" role="main"&gt;
+
+&nbsp; &lt;form [formGroup]="inputForm"&gt;
+&nbsp; &nbsp; &lt;input type="text" placeholder="Your Name" formControlName="name" /&gt;
+&nbsp; &lt;/form&gt;
+
+&lt;/div&gt;</code></pre>
+            <p>From this moment, every FormControl changes will be displayed in the browser console.</p>
+          </tr>
+        </div>
+      </tbody>
+    </table>
   </div>
 </div>
